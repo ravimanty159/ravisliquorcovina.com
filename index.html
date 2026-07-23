@@ -1,2644 +1,460 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAVI'S LIQUOR II | Covina, CA</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-:root {
-    --black: #000000;
-    --white: #ffffff;
-    --cream: #faf9f7;
-    --warm-gray: #f5f3f0;
-    --text: #1a1a1a;
-    --text-light: #666666;
-    --text-muted: #999999;
-    --border: #e5e5e5;
-    --gold: #c9a96e;
-    --gold-dark: #a88b52;
-}
-html { scroll-behavior: smooth; }
-body {
-    font-family: 'Inter', sans-serif;
-    background: var(--white);
-    color: var(--text);
-    -webkit-font-smoothing: antialiased;
-}
-.top-bar {
-    background: var(--black);
-    color: var(--white);
-    text-align: center;
-    padding: 8px 20px;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-}
-.main-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
-}
-.header-inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 70px;
-}
-.logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 26px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    color: var(--black);
-    text-decoration: none;
-}
-.logo span {
-    font-weight: 400;
-    font-style: italic;
-    letter-spacing: 1px;
-}
-.main-nav {
-    display: flex;
-    gap: 36px;
-    list-style: none;
-}
-.main-nav a {
-    text-decoration: none;
-    color: var(--text);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    padding: 24px 0;
-    position: relative;
-    transition: color 0.2s;
-    cursor: pointer;
-}
-.main-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: 18px;
-    left: 0;
-    width: 0;
-    height: 1.5px;
-    background: var(--black);
-    transition: width 0.3s ease;
-}
-.main-nav a:hover::after,
-.main-nav a.active::after {
-    width: 100%;
-}
-.main-nav a:hover,
-.main-nav a.active {
-    color: var(--black);
-}
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-}
-.header-actions a {
-    text-decoration: none;
-    color: var(--text);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    transition: color 0.2s;
-}
-.header-actions a:hover {
-    color: var(--gold-dark);
-}
-.hero {
-    position: relative;
-    height: 85vh;
-    min-height: 600px;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0d0d0d 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-.hero-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:
-        radial-gradient(ellipse at 20% 50%, rgba(201,169,110,0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 30%, rgba(201,169,110,0.05) 0%, transparent 40%);
-}
-.hero-shelf {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(201,169,110,0.15), transparent);
-}
-.hero-shelf-1 { top: 25%; }
-.hero-shelf-2 { top: 50%; }
-.hero-shelf-3 { top: 75%; }
-.hero-bottle {
-    position: absolute;
-    font-size: 28px;
-    opacity: 0.06;
-    filter: grayscale(100%);
-}
-.hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    max-width: 800px;
-    padding: 0 40px;
-}
-.hero-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 24px;
-}
-.hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 72px;
-    font-weight: 400;
-    color: var(--white);
-    line-height: 1.1;
-    margin-bottom: 20px;
-}
-.hero h1 em {
-    font-style: italic;
-    color: var(--gold);
-}
-.hero-subtitle {
-    font-size: 16px;
-    font-weight: 300;
-    color: rgba(255,255,255,0.6);
-    letter-spacing: 2px;
-    margin-bottom: 40px;
-}
-.hero-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: var(--white);
-    color: var(--black);
-    padding: 16px 40px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.hero-cta:hover {
-    background: var(--gold);
-    color: var(--white);
-}
-.hero-cta svg {
-    width: 16px;
-    height: 16px;
-    transition: transform 0.3s;
-}
-.hero-cta:hover svg {
-    transform: translateX(4px);
-}
-.hero-info {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 48px;
-    color: rgba(255,255,255,0.4);
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-}
-.section-header {
-    padding: 80px 40px 40px;
-    max-width: 1400px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-.section-header h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    font-weight: 400;
-    color: var(--text);
-}
-.section-header h2 em {
-    font-style: italic;
-    color: var(--gold-dark);
-}
-.section-header a {
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--text);
-    text-decoration: none;
-    border-bottom: 1px solid var(--text);
-    padding-bottom: 2px;
-    transition: all 0.2s;
-}
-.section-header a:hover {
-    color: var(--gold-dark);
-    border-color: var(--gold-dark);
-}
-.products-section {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 40px 80px;
-}
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-}
-.product-card {
-    cursor: pointer;
-    transition: opacity 0.3s;
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-.product-card:hover {
-    opacity: 0.85;
-}
-.product-image-wrap {
-    position: relative;
-    aspect-ratio: 3/4;
-    background: var(--warm-gray);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.product-image-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-}
-.product-card:hover .product-image-wrap img {
-    transform: scale(1.03);
-}
-.product-badge {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background: var(--black);
-    color: var(--white);
-    padding: 6px 12px;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-.product-badge.gold {
-    background: var(--gold);
-    color: var(--white);
-}
-.product-info {
-    padding: 16px 4px 8px;
-}
-.product-info h3 {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text);
-    margin-bottom: 4px;
-    line-height: 1.4;
-}
-.product-info .desc {
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-bottom: 8px;
-    line-height: 1.4;
-}
-.product-info .price {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text);
-}
-.product-info .price .from {
-    font-weight: 400;
-    color: var(--text-muted);
-}
-.order-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.7));
-    opacity: 0;
-    transition: opacity 0.3s;
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-}
-.product-card:hover .order-overlay {
-    opacity: 1;
-}
-.order-btn {
-    background: var(--white);
-    color: var(--black);
-    border: none;
-    padding: 10px 16px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: all 0.2s;
-    font-family: 'Inter', sans-serif;
-}
-.order-btn:hover {
-    background: var(--gold);
-    color: var(--white);
-}
-.order-btn.ubereats {
-    background: #06C167;
-    color: white;
-}
-.order-btn.ubereats:hover {
-    background: #05a857;
-}
-.order-btn.doordash {
-    background: #FF3008;
-    color: white;
-}
-.order-btn.doordash:hover {
-    background: #e62b07;
-}
-.banner-section {
-    position: relative;
-    height: 70vh;
-    min-height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    margin: 40px 0;
-}
-.banner-dark {
-    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
-}
-.banner-light {
-    background: linear-gradient(135deg, #f5f3f0 0%, #faf9f7 100%);
-}
-.banner-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-.banner-dark .banner-bg {
-    background: radial-gradient(ellipse at 30% 50%, rgba(201,169,110,0.06) 0%, transparent 50%);
-}
-.banner-light .banner-bg {
-    background: radial-gradient(ellipse at 50% 50%, rgba(201,169,110,0.06) 0%, transparent 60%);
-}
-.banner-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    max-width: 600px;
-    padding: 0 40px;
-}
-.banner-content h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 52px;
-    font-weight: 400;
-    line-height: 1.1;
-    margin-bottom: 16px;
-}
-.banner-dark .banner-content h2 {
-    color: var(--white);
-}
-.banner-light .banner-content h2 {
-    color: var(--text);
-}
-.banner-content h2 em {
-    font-style: italic;
-    color: var(--gold);
-}
-.banner-content p {
-    font-size: 15px;
-    font-weight: 300;
-    letter-spacing: 1px;
-    margin-bottom: 32px;
-}
-.banner-dark .banner-content p {
-    color: rgba(255,255,255,0.5);
-}
-.banner-light .banner-content p {
-    color: var(--text-light);
-}
-.banner-cta {
-    display: inline-block;
-    padding: 14px 36px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: all 0.3s;
-}
-.banner-dark .banner-cta {
-    border: 1px solid rgba(255,255,255,0.3);
-    color: var(--white);
-}
-.banner-dark .banner-cta:hover {
-    background: var(--white);
-    color: var(--black);
-    border-color: var(--white);
-}
-.banner-light .banner-cta {
-    border: 1px solid var(--text);
-    color: var(--text);
-}
-.banner-light .banner-cta:hover {
-    background: var(--text);
-    color: var(--white);
-}
-.info-strip {
-    background: var(--cream);
-    padding: 60px 40px;
-}
-.info-strip-inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-    text-align: center;
-}
-.info-item h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-    color: var(--text);
-}
-.info-item p {
-    font-size: 13px;
-    color: var(--text-light);
-    line-height: 1.5;
-}
-.site-footer {
-    background: var(--black);
-    color: var(--white);
-    padding: 80px 40px 40px;
-}
-.footer-inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 60px;
-    margin-bottom: 60px;
-}
-.footer-brand .logo-footer {
-    font-family: 'Playfair Display', serif;
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    margin-bottom: 16px;
-}
-.footer-brand p {
-    font-size: 13px;
-    color: rgba(255,255,255,0.5);
-    line-height: 1.6;
-    margin-bottom: 8px;
-}
-.footer-col h5 {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    color: var(--white);
-}
-.footer-col ul {
-    list-style: none;
-}
-.footer-col li {
-    margin-bottom: 12px;
-}
-.footer-col a {
-    color: rgba(255,255,255,0.5);
-    text-decoration: none;
-    font-size: 13px;
-    transition: color 0.2s;
-}
-.footer-col a:hover {
-    color: var(--gold);
-}
-.footer-bottom {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding-top: 30px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 16px;
-}
-.footer-bottom p {
-    font-size: 11px;
-    color: rgba(255,255,255,0.3);
-    letter-spacing: 0.5px;
-}
-.footer-bottom .warning {
-    color: rgba(255,100,100,0.6);
-    font-weight: 500;
-}
-
-/* PRODUCT DETAIL PAGE */
-.product-detail {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 60px 40px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-}
-.product-detail-image {
-    background: var(--warm-gray);
-    aspect-ratio: 3/4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-.product-detail-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.product-detail-info h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    font-weight: 400;
-    margin-bottom: 8px;
-}
-.product-detail-info .subtitle {
-    font-size: 16px;
-    color: var(--text-muted);
-    margin-bottom: 24px;
-}
-.product-detail-info .price-large {
-    font-size: 32px;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 8px;
-}
-.specs {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    margin-bottom: 32px;
-    padding: 20px;
-    background: var(--cream);
-    border-radius: 8px;
-}
-.spec {
-    display: flex;
-    flex-direction: column;
-}
-.spec-label {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--text-muted);
-    margin-bottom: 4px;
-}
-.spec-value {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text);
-}
-.description {
-    font-size: 15px;
-    line-height: 1.7;
-    color: var(--text-light);
-    margin-bottom: 32px;
-}
-.tasting-notes {
-    background: var(--cream);
-    padding: 24px;
-    border-radius: 8px;
-    margin-bottom: 32px;
-}
-.tasting-notes h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-    margin-bottom: 12px;
-    color: var(--text);
-}
-.tasting-notes p {
-    font-size: 14px;
-    line-height: 1.6;
-    color: var(--text-light);
-}
-.order-section {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 24px;
-}
-.order-section .order-btn {
-    padding: 16px 32px;
-    font-size: 13px;
-}
-.back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 13px;
-    margin-bottom: 24px;
-    transition: color 0.2s;
-}
-.back-link:hover {
-    color: var(--text);
-}
-.breadcrumb {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 40px;
-    font-size: 12px;
-    color: var(--text-muted);
-}
-.breadcrumb a {
-    color: var(--text-muted);
-    text-decoration: none;
-    transition: color 0.2s;
-}
-.breadcrumb a:hover {
-    color: var(--text);
-}
-.related-section {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 40px 80px;
-}
-.related-section h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 24px;
-    margin-bottom: 24px;
-}
-
-@media (max-width: 1024px) {
-    .product-grid { grid-template-columns: repeat(3, 1fr); }
-    .hero h1 { font-size: 52px; }
-    .banner-content h2 { font-size: 40px; }
-    .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
-    .info-strip-inner { grid-template-columns: repeat(2, 1fr); gap: 30px; }
-}
-@media (max-width: 768px) {
-    .header-inner { padding: 0 20px; height: 60px; }
-    .main-nav { display: none; }
-    .logo { font-size: 20px; }
-    .hero { height: 70vh; min-height: 450px; }
-    .hero h1 { font-size: 36px; }
-    .hero-info { gap: 24px; font-size: 9px; }
-    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    .products-section { padding: 0 20px 60px; }
-    .section-header { padding: 60px 20px 30px; }
-    .section-header h2 { font-size: 28px; }
-    .footer-inner { grid-template-columns: 1fr; gap: 40px; }
-    .banner-content h2 { font-size: 32px; }
-    .order-overlay { opacity: 1; padding: 12px; }
-    .order-btn { padding: 8px 12px; font-size: 10px; }
-    .product-detail { grid-template-columns: 1fr; gap: 30px; padding: 30px 20px; }
-    .product-detail-info h1 { font-size: 28px; }
-    .order-section { flex-direction: column; }
-}
-@media (max-width: 480px) {
-    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    .hero h1 { font-size: 28px; }
-    .hero-info { display: none; }
-}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAVI'S LIQUOR II | Covina, CA</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--black:#000;--white:#fff;--cream:#faf9f7;--warm:#f5f3f0;--text:#1a1a1a;--light:#666;--muted:#999;--border:#e5e5e5;--gold:#c9a96e;--gold-dark:#a88b52}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--white);color:var(--text);-webkit-font-smoothing:antialiased}
+.top-bar{background:var(--black);color:var(--white);text-align:center;padding:8px 20px;font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase}
+.main-header{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border)}
+.header-inner{max-width:1400px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;letter-spacing:3px;color:var(--black);text-decoration:none}
+.logo span{font-weight:400;font-style:italic;letter-spacing:1px}
+.main-nav{display:flex;gap:36px;list-style:none}
+.main-nav a{text-decoration:none;color:var(--text);font-size:13px;font-weight:500;letter-spacing:.5px;text-transform:uppercase;padding:24px 0;position:relative;transition:color .2s;cursor:pointer}
+.main-nav a::after{content:'';position:absolute;bottom:18px;left:0;width:0;height:1.5px;background:var(--black);transition:width .3s}
+.main-nav a:hover::after,.main-nav a.active::after{width:100%}
+.main-nav a:hover,.main-nav a.active{color:var(--black)}
+.header-actions{display:flex;align-items:center;gap:24px}
+.header-actions a{text-decoration:none;color:var(--text);font-size:12px;font-weight:500;letter-spacing:.5px;transition:color .2s}
+.header-actions a:hover{color:var(--gold-dark)}
+.cart-icon{position:relative;cursor:pointer}
+.cart-count{position:absolute;top:-8px;right:-8px;background:var(--gold);color:var(--white);font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.hero{position:relative;height:85vh;min-height:600px;background:linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 50%,#0d0d0d 100%);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at 20% 50%,rgba(201,169,110,.08) 0%,transparent 50%),radial-gradient(ellipse at 80% 30%,rgba(201,169,110,.05) 0%,transparent 40%)}
+.hero-shelf{position:absolute;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(201,169,110,.15),transparent)}
+.hero-shelf-1{top:25%}.hero-shelf-2{top:50%}.hero-shelf-3{top:75%}
+.hero-bottle{position:absolute;font-size:28px;opacity:.06;filter:grayscale(100%)}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:800px;padding:0 40px}
+.hero-label{font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:24px}
+.hero h1{font-family:'Playfair Display',serif;font-size:72px;font-weight:400;color:var(--white);line-height:1.1;margin-bottom:20px}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-subtitle{font-size:16px;font-weight:300;color:rgba(255,255,255,.6);letter-spacing:2px;margin-bottom:40px}
+.hero-cta{display:inline-flex;align-items:center;gap:12px;background:var(--white);color:var(--black);padding:16px 40px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:all .3s}
+.hero-cta:hover{background:var(--gold);color:var(--white)}
+.hero-cta svg{width:16px;height:16px;transition:transform .3s}
+.hero-cta:hover svg{transform:translateX(4px)}
+.hero-info{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;gap:48px;color:rgba(255,255,255,.4);font-size:11px;letter-spacing:1.5px;text-transform:uppercase}
+.section-header{padding:80px 40px 40px;max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end}
+.section-header h2{font-family:'Playfair Display',serif;font-size:36px;font-weight:400;color:var(--text)}
+.section-header h2 em{font-style:italic;color:var(--gold-dark)}
+.section-header a{font-size:12px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--text);text-decoration:none;border-bottom:1px solid var(--text);padding-bottom:2px;transition:all .2s}
+.section-header a:hover{color:var(--gold-dark);border-color:var(--gold-dark)}
+.products-section{max-width:1400px;margin:0 auto;padding:0 40px 80px}
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.product-card{cursor:pointer;transition:opacity .3s;text-decoration:none;color:inherit;display:block}
+.product-card:hover{opacity:.85}
+.product-image-wrap{position:relative;aspect-ratio:3/4;background:var(--warm);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.product-image-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.product-card:hover .product-image-wrap img{transform:scale(1.03)}
+.product-badge{position:absolute;top:12px;left:12px;background:var(--black);color:var(--white);padding:6px 12px;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.product-badge.gold{background:var(--gold);color:var(--white)}
+.product-info{padding:16px 4px 8px}
+.product-info h3{font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px;line-height:1.4}
+.product-info .desc{font-size:12px;color:var(--muted);margin-bottom:8px;line-height:1.4}
+.product-info .price{font-size:13px;font-weight:600;color:var(--text)}
+.product-info .price .from{font-weight:400;color:var(--muted)}
+.add-cart-btn{background:var(--black);color:var(--white);border:none;padding:12px 24px;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all .2s;width:100%;margin-top:8px}
+.add-cart-btn:hover{background:var(--gold)}
+.product-card .add-cart-btn{opacity:0;transition:opacity .3s}
+.product-card:hover .add-cart-btn{opacity:1}
+.banner-section{position:relative;height:70vh;min-height:500px;display:flex;align-items:center;justify-content:center;overflow:hidden;margin:40px 0}
+.banner-dark{background:linear-gradient(135deg,#1a1a1a 0%,#0d0d0d 100%)}
+.banner-light{background:linear-gradient(135deg,#f5f3f0 0%,#faf9f7 100%)}
+.banner-bg{position:absolute;top:0;left:0;width:100%;height:100%}
+.banner-dark .banner-bg{background:radial-gradient(ellipse at 30% 50%,rgba(201,169,110,.06) 0%,transparent 50%)}
+.banner-light .banner-bg{background:radial-gradient(ellipse at 50% 50%,rgba(201,169,110,.06) 0%,transparent 60%)}
+.banner-content{position:relative;z-index:2;text-align:center;max-width:600px;padding:0 40px}
+.banner-content h2{font-family:'Playfair Display',serif;font-size:52px;font-weight:400;line-height:1.1;margin-bottom:16px}
+.banner-dark .banner-content h2{color:var(--white)}.banner-light .banner-content h2{color:var(--text)}
+.banner-content h2 em{font-style:italic;color:var(--gold)}
+.banner-content p{font-size:15px;font-weight:300;letter-spacing:1px;margin-bottom:32px}
+.banner-dark .banner-content p{color:rgba(255,255,255,.5)}.banner-light .banner-content p{color:var(--light)}
+.banner-cta{display:inline-block;padding:14px 36px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .3s}
+.banner-dark .banner-cta{border:1px solid rgba(255,255,255,.3);color:var(--white)}.banner-dark .banner-cta:hover{background:var(--white);color:var(--black);border-color:var(--white)}
+.banner-light .banner-cta{border:1px solid var(--text);color:var(--text)}.banner-light .banner-cta:hover{background:var(--text);color:var(--white)}
+.sub-filter{display:flex;gap:10px;padding:0 40px 20px;max-width:1400px;margin:0 auto;flex-wrap:wrap}
+.sub-filter button{padding:8px 18px;border:1px solid var(--border);background:var(--white);color:var(--text);font-size:12px;font-weight:500;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;transition:all .2s}
+.sub-filter button:hover,.sub-filter button.active{background:var(--black);color:var(--white);border-color:var(--black)}
+.info-strip{background:var(--cream);padding:60px 40px}
+.info-strip-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:40px;text-align:center}
+.info-item h4{font-family:'Playfair Display',serif;font-size:14px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;color:var(--text)}
+.info-item p{font-size:13px;color:var(--light);line-height:1.5}
+.site-footer{background:var(--black);color:var(--white);padding:80px 40px 40px}
+.footer-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:60px;margin-bottom:60px}
+.footer-brand .logo-footer{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;letter-spacing:3px;margin-bottom:16px}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,.5);line-height:1.6;margin-bottom:8px}
+.footer-col h5{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;color:var(--white)}
+.footer-col ul{list-style:none}.footer-col li{margin-bottom:12px}
+.footer-col a{color:rgba(255,255,255,.5);text-decoration:none;font-size:13px;transition:color .2s}.footer-col a:hover{color:var(--gold)}
+.footer-bottom{max-width:1400px;margin:0 auto;padding-top:30px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-bottom p{font-size:11px;color:rgba(255,255,255,.3);letter-spacing:.5px}
+.footer-bottom .warning{color:rgba(255,100,100,.6);font-weight:500}
+.cart-overlay{position:fixed;top:0;right:0;width:420px;max-width:100%;height:100%;background:var(--white);z-index:2000;transform:translateX(100%);transition:transform .3s;box-shadow:-5px 0 30px rgba(0,0,0,.15);display:flex;flex-direction:column}
+.cart-overlay.open{transform:translateX(0)}
+.cart-overlay-backdrop{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.4);z-index:1999;opacity:0;pointer-events:none;transition:opacity .3s}
+.cart-overlay-backdrop.open{opacity:1;pointer-events:auto}
+.cart-header{padding:24px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.cart-header h3{font-family:'Playfair Display',serif;font-size:20px}
+.cart-close{background:none;border:none;font-size:24px;cursor:pointer;color:var(--text)}
+.cart-items{flex:1;overflow-y:auto;padding:20px}
+.cart-item{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--border)}
+.cart-item-img{width:80px;height:80px;object-fit:cover;background:var(--warm)}
+.cart-item-info{flex:1}.cart-item-info h4{font-size:14px;margin-bottom:4px}.cart-item-info p{font-size:12px;color:var(--muted);margin-bottom:8px}
+.cart-item-qty{display:flex;align-items:center;gap:12px}
+.cart-item-qty button{width:28px;height:28px;border:1px solid var(--border);background:var(--white);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center}
+.cart-item-qty span{font-size:14px;font-weight:600;min-width:20px;text-align:center}
+.cart-item-remove{background:none;border:none;color:var(--muted);cursor:pointer;font-size:12px;text-decoration:underline}
+.cart-footer{padding:24px;border-top:1px solid var(--border);background:var(--cream)}
+.cart-subtotal{display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px}
+.cart-total{display:flex;justify-content:space-between;margin-bottom:20px;font-size:18px;font-weight:700}
+.cart-checkout-btn{display:block;width:100%;padding:16px;background:var(--black);color:var(--white);border:none;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;text-align:center;text-decoration:none}
+.cart-checkout-btn:hover{background:var(--gold)}
+.cart-empty{text-align:center;padding:60px 20px;color:var(--muted)}
+.breadcrumb{max-width:1400px;margin:0 auto;padding:20px 40px;font-size:12px;color:var(--muted)}
+.breadcrumb a{color:var(--muted);text-decoration:none;cursor:pointer}.breadcrumb a:hover{color:var(--text)}
+.product-detail{max-width:1200px;margin:0 auto;padding:60px 40px;display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.product-detail-image{background:var(--warm);aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.product-detail-image img{width:100%;height:100%;object-fit:cover}
+.product-detail-info h1{font-family:'Playfair Display',serif;font-size:36px;font-weight:400;margin-bottom:8px}
+.product-detail-info .subtitle{font-size:16px;color:var(--muted);margin-bottom:24px}
+.product-detail-info .price-large{font-size:32px;font-weight:700;color:var(--text);margin-bottom:8px}
+.specs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:32px;padding:20px;background:var(--cream);border-radius:8px}
+.spec{display:flex;flex-direction:column}.spec-label{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:4px}.spec-value{font-size:14px;font-weight:600;color:var(--text)}
+.description{font-size:15px;line-height:1.7;color:var(--light);margin-bottom:32px}
+.tasting-notes{background:var(--cream);padding:24px;border-radius:8px;margin-bottom:32px}
+.tasting-notes h4{font-family:'Playfair Display',serif;font-size:16px;margin-bottom:12px;color:var(--text)}.tasting-notes p{font-size:14px;line-height:1.6;color:var(--light)}
+.order-section{display:flex;gap:12px;margin-bottom:24px}.order-section .order-btn{padding:16px 32px;font-size:13px}
+.back-link{display:inline-flex;align-items:center;gap:8px;color:var(--muted);text-decoration:none;font-size:13px;margin-bottom:24px;transition:color .2s}.back-link:hover{color:var(--text)}
+.related-section{max-width:1400px;margin:0 auto;padding:0 40px 80px}.related-section h3{font-family:'Playfair Display',serif;font-size:24px;margin-bottom:24px}
+.checkout-page{max-width:800px;margin:0 auto;padding:60px 40px;text-align:center}.checkout-page h1{font-family:'Playfair Display',serif;font-size:36px;margin-bottom:20px}.checkout-page p{font-size:15px;color:var(--light);margin-bottom:40px;line-height:1.6}
+.checkout-options{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:500px;margin:0 auto}
+.checkout-option{padding:30px;border:2px solid var(--border);cursor:pointer;transition:all .3s;text-decoration:none;color:var(--text)}
+.checkout-option:hover{border-color:var(--gold);background:var(--cream)}.checkout-option h3{font-size:18px;margin-bottom:8px}.checkout-option p{font-size:13px;color:var(--muted);margin:0}
+@media(max-width:1024px){.product-grid{grid-template-columns:repeat(3,1fr)}.hero h1{font-size:52px}.banner-content h2{font-size:40px}.footer-inner{grid-template-columns:1fr 1fr;gap:40px}.info-strip-inner{grid-template-columns:repeat(2,1fr);gap:30px}}
+@media(max-width:768px){.header-inner{padding:0 20px;height:60px}.main-nav{display:none}.logo{font-size:20px}.hero{height:70vh;min-height:450px}.hero h1{font-size:36px}.hero-info{gap:24px;font-size:9px}.product-grid{grid-template-columns:repeat(2,1fr);gap:16px}.products-section{padding:0 20px 60px}.section-header{padding:60px 20px 30px}.section-header h2{font-size:28px}.footer-inner{grid-template-columns:1fr;gap:40px}.banner-content h2{font-size:32px}.product-card .add-cart-btn{opacity:1}.product-detail{grid-template-columns:1fr;gap:30px;padding:30px 20px}.product-detail-info h1{font-size:28px}.order-section{flex-direction:column}.checkout-options{grid-template-columns:1fr}.cart-overlay{width:100%}}
+@media(max-width:480px){.product-grid{grid-template-columns:repeat(2,1fr);gap:12px}.hero h1{font-size:28px}.hero-info{display:none}}
 </style>
 </head>
 <body>
-    <div class="top-bar">Free delivery in Covina on orders over $50 &bull; Open Late Daily</div>
-    <header class="main-header">
-        <div class="header-inner">
-            <a href="index.html" class="logo">RAVI'S <span>Liquor</span></a>
-            <nav>
-                <ul class="main-nav">
-                    <li><a href="#spirits" class="active">Spirits</a></li>
-                    <li><a href="#wine">Wine</a></li>
-                    <li><a href="#beer">Beer</a></li>
-                    <li><a href="#lottery">Lottery</a></li>
-                    <li><a href="#convenience">Convenience</a></li>
-                    <li><a href="#tobacco">Tobacco</a></li>
-                </ul>
-            </nav>
-            <div class="header-actions">
-                <a href="tel:+16266992212">(626) 699-2212</a>
-                <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank">Order</a>
+<div class="top-bar">Free delivery in Covina on orders over $50 &bull; Open Late Daily</div>
+<header class="main-header">
+    <div class="header-inner">
+        <a href="#" class="logo" onclick="showHome();return false;">RAVI'S <span>Liquor</span></a>
+        <nav>
+            <ul class="main-nav" id="mainNav">
+                <li><a href="#" data-cat="spirits" onclick="showCategory('spirits');return false;">Spirits</a></li>
+                <li><a href="#" data-cat="wine" onclick="showCategory('wine');return false;">Wine</a></li>
+                <li><a href="#" data-cat="beer" onclick="showCategory('beer');return false;">Beer</a></li>
+                <li><a href="#" data-cat="lottery" onclick="showCategory('lottery');return false;">Lottery</a></li>
+                <li><a href="#" data-cat="convenience" onclick="showCategory('convenience');return false;">Convenience</a></li>
+                <li><a href="#" data-cat="tobacco" onclick="showCategory('tobacco');return false;">Tobacco</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <a href="tel:+16266992212">(626) 699-2212</a>
+            <div class="cart-icon" onclick="toggleCart()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6L5 3H2"/></svg>
+                <span class="cart-count" id="cartCount" style="display:none">0</span>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
-    <section class="hero" id="home">
+<div id="app"></div>
+
+<div class="cart-overlay-backdrop" id="cartBackdrop" onclick="toggleCart()"></div>
+<div class="cart-overlay" id="cartOverlay">
+    <div class="cart-header">
+        <h3>Your Cart</h3>
+        <button class="cart-close" onclick="toggleCart()">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+        <div class="cart-subtotal"><span>Subtotal</span><span id="cartSubtotal">$0.00</span></div>
+        <div class="cart-total"><span>Total</span><span id="cartTotal">$0.00</span></div>
+        <button class="cart-checkout-btn" onclick="showCheckout()">Proceed to Checkout</button>
+    </div>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <div class="logo-footer">RAVI'S <em style="font-weight:400">Liquor</em></div>
+            <p>904 E Arrow Highway<br>Covina, CA 91724</p>
+            <p>(626) 699-2212</p>
+            <p style="margin-top:16px;color:var(--gold)">Mon-Thu: 8AM-12AM<br>Fri-Sat: 8AM-1AM<br>Sun: 8AM-12AM</p>
+        </div>
+        <div class="footer-col">
+            <h5>Shop</h5>
+            <ul>
+                <li><a href="#" onclick="showCategory('spirits');return false">Spirits</a></li>
+                <li><a href="#" onclick="showCategory('wine');return false">Wine</a></li>
+                <li><a href="#" onclick="showCategory('beer');return false">Beer</a></li>
+                <li><a href="#" onclick="showCategory('lottery');return false">Lottery</a></li>
+                <li><a href="#" onclick="showCategory('convenience');return false">Convenience</a></li>
+                <li><a href="#" onclick="showCategory('tobacco');return false">Tobacco</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h5>Order Online</h5>
+            <ul>
+                <li><a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank">UberEats</a></li>
+                <li><a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank">DoorDash</a></li>
+                <li><a href="tel:+16266992212">Call to Order</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Ravi's Liquor II. All rights reserved.</p>
+        <p class="warning">&#128286; Must be 21+ with valid ID to purchase alcohol and tobacco products.</p>
+        <p>We reserve the right to refuse service. Play responsibly.</p>
+    </div>
+</footer>
+
+<script>
+const P={jack-daniels:{n:"Jack Daniel's Old No. 7",p:28.99,c:"spirits",s:"whiskey",sz:"750ml",a:"40%",cal:"65 per 1oz",o:"Tennessee",i:"https://kimi-web-img.moonshot.cn/img/cdn.mos.cms.futurecdn.net/bd78db52e46ca000dd86edc571a9c397ba7036b8.jpg",d:"Charcoal-mellowed Tennessee whiskey aged in handcrafted barrels. Notes of vanilla, caramel, and toasted oak.",t:"Sweet vanilla and caramel upfront, toasted oak, light smoke, warm smooth finish."},jameson:{n:"Jameson Irish Whiskey",p:24.64,c:"spirits",s:"whiskey",sz:"750ml",a:"40%",cal:"69 per 1oz",o:"Ireland",i:"https://kimi-web-img.moonshot.cn/img/www.thebottleclub.com/eb382c2624dbc824789b6ebe51a8ba91293630c8.jpg",d:"World's best-selling Irish whiskey, triple-distilled for exceptional smoothness. Aged 4+ years in oak casks.",t:"Smooth and mellow with toasted wood, vanilla, and a touch of sherry sweetness."},jameson-cold-brew:{n:"Jameson Cold Brew",p:26.99,c:"spirits",s:"whiskey",sz:"750ml",a:"30%",cal:"75 per 1oz",o:"Ireland",i:"https://kimi-web-img.moonshot.cn/img/www.thebottleclub.com/eb382c2624dbc824789b6ebe51a8ba91293630c8.jpg",d:"Jameson Irish Whiskey combined with rich cold brew coffee flavor. Smooth whiskey meets bold coffee.",t:"Rich coffee and chocolate notes with smooth Irish whiskey warmth."},jameson-black:{n:"Jameson Black Barrel",p:34.99,c:"spirits",s:"whiskey",sz:"750ml",a:"40%",cal:"69 per 1oz",o:"Ireland",i:"https://kimi-web-img.moonshot.cn/img/www.thebottleclub.com/eb382c2624dbc824789b6ebe51a8ba91293630c8.jpg",d:"Double charred barrels give this Irish whiskey intense notes of vanilla, spice, and toasted wood.",t:"Rich vanilla, butterscotch, and toasted oak with a long, creamy finish."},fireball:{n:"Fireball Cinnamon Whiskey",p:19.99,c:"spirits",s:"whiskey",sz:"750ml",a:"33%",cal:"108 per 1.5oz",o:"Canada",i:"https://kimi-web-img.moonshot.cn/img/cdn.mos.cms.futurecdn.net/bd78db52e46ca000dd86edc571a9c397ba7036b8.jpg",d:"The iconic cinnamon whiskey that tastes like heaven, burns like hell. Sweet cinnamon with a fiery kick.",t:"Sweet cinnamon candy followed by a warm, spicy burn."},makers-mark:{n:"Maker's Mark Bourbon",p:29.99,c:"spirits",s:"whiskey",sz:"750ml",a:"45%",cal:"70 per 1oz",o:"Kentucky",i:"https://kimi-web-img.moonshot.cn/img/cdn.mos.cms.futurecdn.net/bd78db52e46ca000dd86edc571a9c397ba7036b8.jpg",d:"Hand-dipped red wax seal bourbon. Soft wheat recipe gives it a gentle, approachable sweetness.",t:"Caramel, vanilla, and toasted wheat with a smooth, creamy finish."},woodford-reserve:{n:"Woodford Reserve Bourbon",p:36.99,c:"spirits",s:"whiskey",sz:"750ml",a:"45.2%",cal:"73 per 1oz",o:"Kentucky",i:"https://kimi-web-img.moonshot.cn/img/cdn.mos.cms.futurecdn.net/bd78db52e46ca000dd86edc571a9c397ba7036b8.jpg",d:"Small-batch Kentucky bourbon with over 200 flavor notes. Complex and perfectly balanced.",t:"Dried fruit, vanilla, caramel, chocolate, and spice with a smooth, long finish."},crown-royal:{n:"Crown Royal Canadian Whisky",p:27.99,c:"spirits",s:"whiskey",sz:"750ml",a:"40%",cal:"69 per 1oz",o:"Canada",i:"https://kimi-web-img.moonshot.cn/img/cdn.mos.cms.futurecdn.net/bd78db52e46ca000dd86edc571a9c397ba7036b8.jpg",d:"The iconic purple bag whisky. Blended from 50+ whiskies for a smooth, rich, and regal taste.",t:"Creamy vanilla, caramel, and light oak with a silky smooth finish."},johnnie-walker-black:{n:"Johnnie Walker Black Label",p:34.99,c:"spirits",s:"whiskey",sz:"750ml",a:"40%",cal:"69 per 1oz",o:"Scotland",i:"https://kimi-web-img.moonshot.cn/img/cdn.mos.cms.futurecdn.net/bd78db52e46ca000dd86edc571a9c397ba7036b8.jpg",d:"12-year-old blended Scotch whisky. The benchmark for all luxury whisky.",t:"Rich fruit, vanilla, and smoky peat with a long, warming finish."},seagrams-7:{n:"Seagram's 7 Crown",p:14.99,c:"spirits",s:"whiskey",sz:"750ml",a:"40%",cal:"65 per 1oz",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/cdn.mos.cms.futurecdn.net/bd78db52e46ca000dd86edc571a9c397ba7036b8.jpg",d:"America's favorite blended whiskey. Smooth, light, and perfect for mixing.",t:"Light and smooth with subtle sweetness and a clean finish."},titos-750:{n:"Tito's Handmade Vodka",p:22.99,c:"spirits",s:"vodka",sz:"750ml",a:"40%",cal:"64 per 1oz",o:"Texas",i:"https://kimi-web-img.moonshot.cn/img/cdn11.bigcommerce.com/195a6c6cd19a88cf7c34ef2def6ee13366243463.jpg",d:"America's original craft vodka. Gluten-free, distilled from corn in pot stills. Remarkably smooth.",t:"Clean, crisp, and neutral with subtle corn sweetness. Silky smooth."},titos-175:{n:"Tito's Handmade Vodka",p:32.99,c:"spirits",s:"vodka",sz:"1.75L",a:"40%",cal:"64 per 1oz",o:"Texas",i:"https://kimi-web-img.moonshot.cn/img/cdn11.bigcommerce.com/195a6c6cd19a88cf7c34ef2def6ee13366243463.jpg",d:"America's original craft vodka in the big bottle. Gluten-free, distilled from corn.",t:"Clean, crisp, and neutral with subtle corn sweetness."},titos-375:{n:"Tito's Handmade Vodka",p:15.99,c:"spirits",s:"vodka",sz:"375ml",a:"40%",cal:"64 per 1oz",o:"Texas",i:"https://kimi-web-img.moonshot.cn/img/cdn11.bigcommerce.com/195a6c6cd19a88cf7c34ef2def6ee13366243463.jpg",d:"The perfect size for trying America's favorite craft vodka. Gluten-free and smooth.",t:"Clean, crisp, and neutral with subtle corn sweetness."},new-amsterdam-750:{n:"New Amsterdam Vodka",p:13.99,c:"spirits",s:"vodka",sz:"750ml",a:"40%",cal:"64 per 1oz",o:"California",i:"https://kimi-web-img.moonshot.cn/img/i5.walmartimages.com/f565cce7f3cfb3ac23d4e4e167f478eebf24a9ce.jpeg",d:"5x distilled and 3x filtered for exceptional smoothness. Perfect for cocktails.",t:"Soft and smooth with subtle citrus and vanilla notes."},grey-goose:{n:"Grey Goose Vodka",p:29.99,c:"spirits",s:"vodka",sz:"750ml",a:"40%",cal:"69 per 1oz",o:"France",i:"https://kimi-web-img.moonshot.cn/img/cdn11.bigcommerce.com/195a6c6cd19a88cf7c34ef2def6ee13366243463.jpg",d:"Premium French vodka made from soft winter wheat. Exceptionally clean and smooth.",t:"Clean and crisp with a subtle almond sweetness and smooth finish."},absolut:{n:"Absolut Vodka",p:19.99,c:"spirits",s:"vodka",sz:"750ml",a:"40%",cal:"69 per 1oz",o:"Sweden",i:"https://kimi-web-img.moonshot.cn/img/cdn11.bigcommerce.com/195a6c6cd19a88cf7c34ef2def6ee13366243463.jpg",d:"Iconic Swedish vodka made from winter wheat and pristine well water. Pure and versatile.",t:"Rich, full-bodied, and smooth with a hint of dried fruit."},smirnoff:{n:"Smirnoff No. 21 Vodka",p:12.99,c:"spirits",s:"vodka",sz:"750ml",a:"40%",cal:"64 per 1oz",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/cdn11.bigcommerce.com/195a6c6cd19a88cf7c34ef2def6ee13366243463.jpg",d:"The world's best-selling vodka. Triple distilled and 10x filtered for purity.",t:"Clean and neutral with a smooth, dry finish."},ketel-one:{n:"Ketel One Vodka",p:24.99,c:"spirits",s:"vodka",sz:"750ml",a:"40%",cal:"69 per 1oz",o:"Netherlands",i:"https://kimi-web-img.moonshot.cn/img/cdn11.bigcommerce.com/195a6c6cd19a88cf7c34ef2def6ee13366243463.jpg",d:"Family-made Dutch vodka from copper pot stills. Crisp, sophisticated, and smooth.",t:"Crisp and lively with hints of honey and citrus."},ciroc:{n:"Cîroc Vodka",p:29.99,c:"spirits",s:"vodka",sz:"750ml",a:"40%",cal:"69 per 1oz",o:"France",i:"https://kimi-web-img.moonshot.cn/img/cdn11.bigcommerce.com/195a6c6cd19a88cf7c34ef2def6ee13366243463.jpg",d:"Ultra-premium vodka distilled from fine French grapes. Uniquely smooth and fruity.",t:"Smooth and slightly sweet with subtle grape and citrus notes."},patron-silver:{n:"Patrón Silver Tequila",p:42.99,c:"spirits",s:"tequila",sz:"750ml",a:"40%",cal:"69 per 1oz",o:"Mexico",i:"https://kimi-web-img.moonshot.cn/img/www.patrontequila.com/08959a7909de1cabae862777a9fc3490aa028883.png",d:"Handcrafted from 100% Weber Blue Agave. Crystal clear and ultra-smooth.",t:"Fresh agave, light citrus, and peppery spice with a smooth, clean finish."},patron-reposado:{n:"Patrón Reposado Tequila",p:48.99,c:"spirits",s:"tequila",sz:"750ml",a:"40%",cal:"69 per 1oz",o:"Mexico",i:"https://kimi-web-img.moonshot.cn/img/www.patrontequila.com/08959a7909de1cabae862777a9fc3490aa028883.png",d:"Aged in oak barrels for 2-12 months. Smooth with hints of oak and vanilla.",t:"Agave sweetness balanced with oak, vanilla, and light spice."},don-julio-blanco:{n:"Don Julio Blanco Tequila",p:44.99,c:"spirits",s:"tequila",sz:"750ml",a:"40%",cal:"69 per 1oz",o:"Mexico",i:"https://kimi-web-img.moonshot.cn/img/www.patrontequila.com/08959a7909de1cabae862777a9fc3490aa028883.png",d:"Premium unaged tequila with crisp agave flavor and citrus undertones.",t:"Crisp agave, fresh citrus, and a hint of pepper."},don-julio-1942:{n:"Don Julio 1942 Añejo",p:149.99,c:"spirits",s:"tequila",sz:"750ml",a:"40%",cal:"69 per 1oz",o:"Mexico",i:"https://kimi-web-img.moonshot.cn/img/www.patrontequila.com/08959a7909de1cabae862777a9fc3490aa028883.png",d:"Luxury añejo tequila aged 2.5 years. Rich, complex, and incredibly smooth.",t:"Rich caramel, vanilla, and toasted oak with a silky, warm finish."},casamigos-blanco:{n:"Casamigos Blanco Tequila",p:39.99,c:"spirits",s:"tequila",sz:"750ml",a:"40%",cal:"69 per 1oz",o:"Mexico",i:"https://kimi-web-img.moonshot.cn/img/www.patrontequila.com/08959a7909de1cabae862777a9fc3490aa028883.png",d:"Ultra-premium tequila founded by George Clooney. Smooth and clean.",t:"Sweet agave, vanilla, and citrus with no burn."},jose-cuervo-gold:{n:"Jose Cuervo Especial Gold",p:18.99,c:"spirits",s:"tequila",sz:"750ml",a:"40%",cal:"69 per 1oz",o:"Mexico",i:"https://kimi-web-img.moonshot.cn/img/www.patrontequila.com/08959a7909de1cabae862777a9fc3490aa028883.png",d:"The world's #1 tequila. Smooth gold tequila perfect for margaritas.",t:"Smooth and mellow with sweet agave and a hint of oak."},jose-cuervo-silver:{n:"Jose Cuervo Especial Silver",p:17.99,c:"spirits",s:"tequila",sz:"750ml",a:"40%",cal:"69 per 1oz",o:"Mexico",i:"https://kimi-web-img.moonshot.cn/img/www.patrontequila.com/08959a7909de1cabae862777a9fc3490aa028883.png",d:"Crisp, clean silver tequila. The margarita essential.",t:"Clean agave with citrus and a peppery kick."},1800-silver:{n:"1800 Silver Tequila",p:24.99,c:"spirits",s:"tequila",sz:"750ml",a:"40%",cal:"69 per 1oz",o:"Mexico",i:"https://kimi-web-img.moonshot.cn/img/www.patrontequila.com/08959a7909de1cabae862777a9fc3490aa028883.png",d:"Premium 100% agave tequila. Double distilled for exceptional smoothness.",t:"Clean agave, light fruit, and a smooth, refined finish."},espolon-blanco:{n:"Espolòn Blanco Tequila",p:21.99,c:"spirits",s:"tequila",sz:"750ml",a:"40%",cal:"69 per 1oz",o:"Mexico",i:"https://kimi-web-img.moonshot.cn/img/www.patrontequila.com/08959a7909de1cabae862777a9fc3490aa028883.png",d:"Award-winning tequila with bold agave flavor and artistic packaging.",t:"Bold agave, tropical fruit, and white pepper with a clean finish."},bacardi-superior:{n:"Bacardi Superior Rum",p:16.99,c:"spirits",s:"rum",sz:"750ml",a:"40%",cal:"65 per 1oz",o:"Puerto Rico",i:"https://kimi-web-img.moonshot.cn/img/media.liquormax.com/e44282b8f5cb5c1eecc24ff4822015531d5c0da2.webp",d:"World's most awarded rum. Light, dry, and perfectly balanced.",t:"Light and crisp with vanilla, almond, and tropical fruit notes."},bacardi-gold:{n:"Bacardi Gold Rum",p:17.99,c:"spirits",s:"rum",sz:"750ml",a:"40%",cal:"65 per 1oz",o:"Puerto Rico",i:"https://kimi-web-img.moonshot.cn/img/media.liquormax.com/e44282b8f5cb5c1eecc24ff4822015531d5c0da2.webp",d:"Aged in oak barrels for a rich, smooth taste with caramel notes.",t:"Rich caramel, vanilla, and toasted oak with a smooth finish."},captain-morgan:{n:"Captain Morgan Original Spiced Rum",p:18.99,c:"spirits",s:"rum",sz:"750ml",a:"35%",cal:"75 per 1.5oz",o:"Puerto Rico",i:"https://kimi-web-img.moonshot.cn/img/media.liquormax.com/e44282b8f5cb5c1eecc24ff4822015531d5c0da2.webp",d:"The original spiced rum. Smooth and medium-bodied with spicy notes.",t:"Vanilla, cinnamon, and clove with a hint of dried fruit."},sailor-jerry:{n:"Sailor Jerry Spiced Rum",p:19.99,c:"spirits",s:"rum",sz:"750ml",a:"46%",cal:"92 per 1.5oz",o:"Virgin Islands",i:"https://kimi-web-img.moonshot.cn/img/media.liquormax.com/e44282b8f5cb5c1eecc24ff4822015531d5c0da2.webp",d:"Bold 92-proof spiced rum inspired by tattoo artist Sailor Jerry. Intense spice.",t:"Bold vanilla, cinnamon, and toffee with a strong, warm finish."},malibu:{n:"Malibu Coconut Rum",p:16.99,c:"spirits",s:"rum",sz:"750ml",a:"21%",cal:"51 per 1oz",o:"Barbados",i:"https://kimi-web-img.moonshot.cn/img/media.liquormax.com/e44282b8f5cb5c1eecc24ff4822015531d5c0da2.webp",d:"Caribbean rum infused with coconut. Sweet, tropical, and refreshing.",t:"Sweet coconut and tropical fruit with a smooth, creamy finish."},hennessy-vs:{n:"Hennessy VS Cognac",p:39.99,c:"spirits",s:"cognac",sz:"750ml",a:"40%",cal:"69 per 1oz",o:"France",i:"https://kimi-web-img.moonshot.cn/img/media.liquormax.com/e44282b8f5cb5c1eecc24ff4822015531d5c0da2.webp",d:"The world's most popular cognac. Rich, full-bodied, and complex.",t:"Rich fruit, vanilla, oak, and spice with a long, warm finish."},remy-martin:{n:"Rémy Martin VSOP Cognac",p:49.99,c:"spirits",s:"cognac",sz:"750ml",a:"40%",cal:"69 per 1oz",o:"France",i:"https://kimi-web-img.moonshot.cn/img/media.liquormax.com/e44282b8f5cb5c1eecc24ff4822015531d5c0da2.webp",d:"Fine Champagne cognac aged at least 4 years. Elegant and refined.",t:"Dried apricot, vanilla, hazelnut, and floral notes with a silky finish."},ej-brandy:{n:"E&J Brandy",p:12.99,c:"spirits",s:"brandy",sz:"750ml",a:"40%",cal:"65 per 1oz",o:"California",i:"https://kimi-web-img.moonshot.cn/img/media.liquormax.com/e44282b8f5cb5c1eecc24ff4822015531d5c0da2.webp",d:"America's #1 brandy. Smooth, rich, and perfect for sipping or mixing.",t:"Sweet fruit, vanilla, and caramel with a smooth, warm finish."},bombay-sapphire:{n:"Bombay Sapphire Gin",p:24.99,c:"spirits",s:"gin",sz:"750ml",a:"47%",cal:"73 per 1oz",o:"England",i:"https://kimi-web-img.moonshot.cn/img/cdn11.bigcommerce.com/195a6c6cd19a88cf7c34ef2def6ee13366243463.jpg",d:"Premium London dry gin with 10 hand-selected botanicals. Vibrant and aromatic.",t:"Juniper, lemon peel, coriander, and angelica with a clean, crisp finish."},tanqueray:{n:"Tanqueray London Dry Gin",p:22.99,c:"spirits",s:"gin",sz:"750ml",a:"47.3%",cal:"73 per 1oz",o:"England",i:"https://kimi-web-img.moonshot.cn/img/cdn11.bigcommerce.com/195a6c6cd19a88cf7c34ef2def6ee13366243463.jpg",d:"Iconic London dry gin with a perfect balance of four botanicals.",t:"Bold juniper, coriander, and angelica with a dry, clean finish."},hendricks:{n:"Hendrick's Gin",p:32.99,c:"spirits",s:"gin",sz:"750ml",a:"44%",cal:"73 per 1oz",o:"Scotland",i:"https://kimi-web-img.moonshot.cn/img/cdn11.bigcommerce.com/195a6c6cd19a88cf7c34ef2def6ee13366243463.jpg",d:"Unusual gin infused with rose and cucumber. Distinctively refreshing.",t:"Rose, cucumber, juniper, and citrus with a uniquely floral finish."},barefoot-moscato:{n:"Barefoot Moscato",p:6.99,c:"wine",s:"white",sz:"750ml",a:"9%",cal:"127 per 5oz",o:"California",i:"https://kimi-web-img.moonshot.cn/img/www.barefootwine.com/e6810136e4c23bfc3514923ba39346ef365cd7cd.jpg",d:"Sweet, fruity, and refreshing. Notes of peach, apricot, and orange blossom.",t:"Sweet peach, apricot, and citrus with a light, refreshing finish."},barefoot-pinot-grigio:{n:"Barefoot Pinot Grigio",p:6.99,c:"wine",s:"white",sz:"750ml",a:"12%",cal:"122 per 5oz",o:"California",i:"https://kimi-web-img.moonshot.cn/img/www.barefootwine.com/e6810136e4c23bfc3514923ba39346ef365cd7cd.jpg",d:"Crisp, light, and refreshing. Green apple, white peach, and floral notes.",t:"Crisp green apple, white peach, and citrus with a clean, dry finish."},barefoot-chardonnay:{n:"Barefoot Chardonnay",p:6.99,c:"wine",s:"white",sz:"750ml",a:"13%",cal:"123 per 5oz",o:"California",i:"https://kimi-web-img.moonshot.cn/img/www.barefootwine.com/e6810136e4c23bfc3514923ba39346ef365cd7cd.jpg",d:"Smooth and creamy with hints of vanilla, oak, and tropical fruit.",t:"Vanilla, oak, pineapple, and peach with a buttery, smooth finish."},barefoot-cabernet:{n:"Barefoot Cabernet Sauvignon",p:6.99,c:"wine",s:"red",sz:"750ml",a:"13.5%",cal:"122 per 5oz",o:"California",i:"https://kimi-web-img.moonshot.cn/img/www.barefootwine.com/e6810136e4c23bfc3514923ba39346ef365cd7cd.jpg",d:"Bold and jammy with blackberry, currant, and vanilla notes.",t:"Blackberry, currant, vanilla, and toasted oak with a smooth finish."},barefoot-merlot:{n:"Barefoot Merlot",p:6.99,c:"wine",s:"red",sz:"750ml",a:"13%",cal:"122 per 5oz",o:"California",i:"https://kimi-web-img.moonshot.cn/img/www.barefootwine.com/e6810136e4c23bfc3514923ba39346ef365cd7cd.jpg",d:"Soft and smooth with plum, chocolate, and cherry flavors.",t:"Plum, chocolate, cherry, and soft tannins with a velvety finish."},barefoot-rose:{n:"Barefoot Rosé",p:6.99,c:"wine",s:"rose",sz:"750ml",a:"11%",cal:"120 per 5oz",o:"California",i:"https://kimi-web-img.moonshot.cn/img/www.barefootwine.com/e6810136e4c23bfc3514923ba39346ef365cd7cd.jpg",d:"Light, refreshing, and fruity. Watermelon, strawberry, and peach.",t:"Watermelon, strawberry, and peach with a crisp, refreshing finish."},barefoot-pink-moscato:{n:"Barefoot Pink Moscato",p:10.99,c:"wine",s:"rose",sz:"1.5L",a:"9%",cal:"127 per 5oz",o:"California",i:"https://kimi-web-img.moonshot.cn/img/ik.imagekit.io/fc27a42a585f61330ec043ba78be8167a20bd151.png",d:"Delightfully sweet with juicy peach, tart raspberry, and orange blossom.",t:"Sweet peach, raspberry, and citrus with a light, effervescent feel."},franzia-crisp-white:{n:"Franzia Crisp White",p:14.99,c:"wine",s:"white",sz:"5L",a:"11%",cal:"120 per 5oz",o:"California",i:"https://kimi-web-img.moonshot.cn/img/i5.walmartimages.com/3bf38d8904aad0abb5eff366f7efa4e8ec6fef2f.jpeg",d:"America's favorite boxed wine. Crisp, refreshing, and great value.",t:"Light and crisp with green apple and citrus notes."},franzia-chillable-red:{n:"Franzia Chillable Red",p:14.99,c:"wine",s:"red",sz:"5L",a:"11%",cal:"120 per 5oz",o:"California",i:"https://kimi-web-img.moonshot.cn/img/i5.walmartimages.com/3bf38d8904aad0abb5eff366f7efa4e8ec6fef2f.jpeg",d:"Light-bodied red wine perfect for chilling. Berry flavors and smooth.",t:"Raspberry, cherry, and light spice with a smooth, easy finish."},lamarca-prosecco:{n:"La Marca Prosecco",p:16.99,c:"wine",s:"sparkling",sz:"750ml",a:"11%",cal:"100 per 5oz",o:"Italy",i:"https://kimi-web-img.moonshot.cn/img/shop.benjerry.com/acfff429d6cb94bc4d6fd5616d941de0ec506914.png",d:"Italian sparkling wine with fresh citrus and honeysuckle notes.",t:"Green apple, citrus, and honeysuckle with fine, lively bubbles."},korbel-brut:{n:"Korbel California Champagne",p:14.99,c:"wine",s:"sparkling",sz:"750ml",a:"12%",cal:"100 per 5oz",o:"California",i:"https://kimi-web-img.moonshot.cn/img/shop.benjerry.com/acfff429d6cb94bc4d6fd5616d941de0ec506914.png",d:"California sparkling wine made in the traditional méthode champenoise.",t:"Crisp apple, citrus, and toasted bread with fine bubbles."},moet-chandon:{n:"Moët & Chandon Imperial",p:54.99,c:"wine",s:"sparkling",sz:"750ml",a:"12%",cal:"100 per 5oz",o:"France",i:"https://kimi-web-img.moonshot.cn/img/shop.benjerry.com/acfff429d6cb94bc4d6fd5616d941de0ec506914.png",d:"Iconic French champagne. Elegant, generous, and radiant.",t:"Green apple, white flowers, and brioche with fine, persistent bubbles."},veuve-clicquot:{n:"Veuve Clicquot Yellow Label",p:59.99,c:"wine",s:"sparkling",sz:"750ml",a:"12%",cal:"100 per 5oz",o:"France",i:"https://kimi-web-img.moonshot.cn/img/shop.benjerry.com/acfff429d6cb94bc4d6fd5616d941de0ec506914.png",d:"Prestigious French champagne with strength, complexity, and freshness.",t:"White peach, vanilla, and toast with a rich, creamy texture."},menage-trois-red:{n:"Ménage à Trois Red Blend",p:10.99,c:"wine",s:"red",sz:"750ml",a:"13.5%",cal:"122 per 5oz",o:"California",i:"https://kimi-web-img.moonshot.cn/img/i5.walmartimages.com/3bf38d8904aad0abb5eff366f7efa4e8ec6fef2f.jpeg",d:"Luscious blend of Zinfandel, Merlot, and Cabernet. Bold and seductive.",t:"Raspberry, blackberry, and vanilla with a soft, velvety finish."},stella-rosa-black:{n:"Stella Rosa Black",p:11.99,c:"wine",s:"red",sz:"750ml",a:"5.5%",cal:"98 per 5oz",o:"Italy",i:"https://kimi-web-img.moonshot.cn/img/i5.walmartimages.com/3bf38d8904aad0abb5eff366f7efa4e8ec6fef2f.jpeg",d:"Semi-sweet, semi-sparkling red wine. Rich berry flavors.",t:"Blackberry, blueberry, and raspberry with a light, sweet fizz."},stella-rosa-peach:{n:"Stella Rosa Peach",p:11.99,c:"wine",s:"white",sz:"750ml",a:"5.5%",cal:"98 per 5oz",o:"Italy",i:"https://kimi-web-img.moonshot.cn/img/i5.walmartimages.com/3bf38d8904aad0abb5eff366f7efa4e8ec6fef2f.jpeg",d:"Semi-sweet, semi-sparkling white wine with juicy peach flavor.",t:"Ripe peach, apricot, and honey with a light, sweet sparkle."},sutter-home-moscato:{n:"Sutter Home Moscato",p:5.99,c:"wine",s:"white",sz:"750ml",a:"10%",cal:"125 per 5oz",o:"California",i:"https://kimi-web-img.moonshot.cn/img/i5.walmartimages.com/3bf38d8904aad0abb5eff366f7efa4e8ec6fef2f.jpeg",d:"Sweet and fruity with tropical fruit and honey notes.",t:"Tropical fruit, honey, and orange blossom with a sweet, smooth finish."},sutter-home-white-zin:{n:"Sutter Home White Zinfandel",p:5.99,c:"wine",s:"rose",sz:"750ml",a:"11%",cal:"120 per 5oz",o:"California",i:"https://kimi-web-img.moonshot.cn/img/i5.walmartimages.com/3bf38d8904aad0abb5eff366f7efa4e8ec6fef2f.jpeg",d:"America's favorite blush wine. Light, refreshing, and slightly sweet.",t:"Strawberry, melon, and cotton candy with a crisp, light finish."},apothic-red:{n:"Apothic Red Blend",p:10.99,c:"wine",s:"red",sz:"750ml",a:"13.5%",cal:"122 per 5oz",o:"California",i:"https://kimi-web-img.moonshot.cn/img/i5.walmartimages.com/3bf38d8904aad0abb5eff366f7efa4e8ec6fef2f.jpeg",d:"Intensely flavorful blend with dark fruit, vanilla, and mocha.",t:"Dark cherry, vanilla, chocolate, and mocha with a velvety finish."},cupcake-moscato:{n:"Cupcake Moscato d'Asti",p:11.99,c:"wine",s:"white",sz:"750ml",a:"5.5%",cal:"110 per 5oz",o:"Italy",i:"https://kimi-web-img.moonshot.cn/img/i5.walmartimages.com/3bf38d8904aad0abb5eff366f7efa4e8ec6fef2f.jpeg",d:"Delightfully sweet Italian sparkling wine. Light and effervescent.",t:"Peach, apricot, and honey with gentle bubbles and a sweet finish."},corona-extra-12pk:{n:"Corona Extra 12-Pack",p:16.99,c:"beer",s:"import",sz:"12-Pack",a:"4.6%",cal:"148 per 12oz",o:"Mexico",i:"https://kimi-web-img.moonshot.cn/img/icdn.bottlenose.wine/0a672d7e61b453dea1a5d335ac63518b88ac3b79.jpg",d:"Mexico's #1 beer. Light, crisp, and refreshing. Best with lime.",t:"Light malt sweetness, crisp and clean with subtle hop bitterness."},corona-extra-6pk:{n:"Corona Extra 6-Pack",p:9.99,c:"beer",s:"import",sz:"6-Pack",a:"4.6%",cal:"148 per 12oz",o:"Mexico",i:"https://kimi-web-img.moonshot.cn/img/icdn.bottlenose.wine/0a672d7e61b453dea1a5d335ac63518b88ac3b79.jpg",d:"The original Cerveza Más Fina in a convenient 6-pack.",t:"Crisp, clean, and refreshing with a touch of malt sweetness."},corona-light-12pk:{n:"Corona Light 12-Pack",p:16.99,c:"beer",s:"import",sz:"12-Pack",a:"4.1%",cal:"99 per 12oz",o:"Mexico",i:"https://kimi-web-img.moonshot.cn/img/icdn.bottlenose.wine/0a672d7e61b453dea1a5d335ac63518b88ac3b79.jpg",d:"The same great Corona taste with fewer calories.",t:"Light, crisp, and refreshing with subtle malt flavor."},modelo-especial-12pk:{n:"Modelo Especial 12-Pack",p:17.99,c:"beer",s:"import",sz:"12-Pack",a:"4.4%",cal:"145 per 12oz",o:"Mexico",i:"https://kimi-web-img.moonshot.cn/img/cdn11.bigcommerce.com/5b42513cc4301e6fd86f1b900dde65e17f0f7a98.jpg",d:"Rich, full-flavored pilsner-style lager. Brewed with premium barley.",t:"Subtle malt sweetness with light hop bitterness. Crisp and clean."},modelo-negra-12pk:{n:"Modelo Negra 12-Pack",p:17.99,c:"beer",s:"import",sz:"12-Pack",a:"5.4%",cal:"172 per 12oz",o:"Mexico",i:"https://kimi-web-img.moonshot.cn/img/cdn11.bigcommerce.com/5b42513cc4301e6fd86f1b900dde65e17f0f7a98.jpg",d:"Munich dunkel-style lager. Rich, smooth, and full-bodied.",t:"Caramel, toasted malt, and chocolate with a smooth, creamy finish."},pacifico-12pk:{n:"Pacifico Clara 12-Pack",p:16.99,c:"beer",s:"import",sz:"12-Pack",a:"4.5%",cal:"146 per 12oz",o:"Mexico",i:"https://kimi-web-img.moonshot.cn/img/cdn11.bigcommerce.com/5b42513cc4301e6fd86f1b900dde65e17f0f7a98.jpg",d:"Crisp Mexican pilsner from Mazatlán. Smooth and refreshing.",t:"Clean malt, light hops, and a crisp, refreshing finish."},tecate-12pk:{n:"Tecate 12-Pack",p:14.99,c:"beer",s:"import",sz:"12-Pack",a:"4.5%",cal:"146 per 12oz",o:"Mexico",i:"https://kimi-web-img.moonshot.cn/img/cdn11.bigcommerce.com/5b42513cc4301e6fd86f1b900dde65e17f0f7a98.jpg",d:"Bold Mexican lager with a distinctive taste.",t:"Malty sweetness with a crisp, clean finish and light hop bitterness."},dos-equis-lager-12pk:{n:"Dos Equis Lager 12-Pack",p:16.99,c:"beer",s:"import",sz:"12-Pack",a:"4.2%",cal:"142 per 12oz",o:"Mexico",i:"https://kimi-web-img.moonshot.cn/img/cdn11.bigcommerce.com/5b42513cc4301e6fd86f1b900dde65e17f0f7a98.jpg",d:"The most interesting beer in the world. Crisp and refreshing.",t:"Clean malt, subtle hops, and a smooth, easy-drinking finish."},budweiser-12pk:{n:"Budweiser 12-Pack",p:12.99,c:"beer",s:"domestic",sz:"12-Pack",a:"5%",cal:"145 per 12oz",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/titos-next.transforms.svdcdn.com/e46c9fd776e2b12b07298858332919ec22f12bce.jpeg",d:"The King of Beers. American-style lager with a clean, crisp taste.",t:"Light malt, subtle hops, and a clean, refreshing finish."},bud-light-12pk:{n:"Bud Light 12-Pack",p:12.99,c:"beer",s:"domestic",sz:"12-Pack",a:"4.2%",cal:"110 per 12oz",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/titos-next.transforms.svdcdn.com/e46c9fd776e2b12b07298858332919ec22f12bce.jpeg",d:"America's favorite light beer. Crisp, clean, and refreshing.",t:"Light and crisp with subtle malt sweetness and a clean finish."},coors-light-12pk:{n:"Coors Light 12-Pack",p:12.99,c:"beer",s:"domestic",sz:"12-Pack",a:"4.2%",cal:"102 per 12oz",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/titos-next.transforms.svdcdn.com/e46c9fd776e2b12b07298858332919ec22f12bce.jpeg",d:"The World's Most Refreshing Beer. Cold-filtered and crisp.",t:"Ultra-light, crisp, and refreshing with a hint of malt."},miller-lite-12pk:{n:"Miller Lite 12-Pack",p:12.99,c:"beer",s:"domestic",sz:"12-Pack",a:"4.2%",cal:"96 per 12oz",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/titos-next.transforms.svdcdn.com/e46c9fd776e2b12b07298858332919ec22f12bce.jpeg",d:"Great taste, less filling. The original light beer.",t:"Light malt, subtle hops, and a clean, dry finish."},miller-high-life-12pk:{n:"Miller High Life 12-Pack",p:11.99,c:"beer",s:"domestic",sz:"12-Pack",a:"4.6%",cal:"141 per 12oz",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/titos-next.transforms.svdcdn.com/e46c9fd776e2b12b07298858332919ec22f12bce.jpeg",d:"The Champagne of Beers. Classic American lager.",t:"Light malt sweetness with a crisp, clean finish."},pabst-blue-ribbon-12pk:{n:"Pabst Blue Ribbon 12-Pack",p:10.99,c:"beer",s:"domestic",sz:"12-Pack",a:"4.8%",cal:"144 per 12oz",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/titos-next.transforms.svdcdn.com/e46c9fd776e2b12b07298858332919ec22f12bce.jpeg",d:"Iconic American lager. Smooth, affordable, and timeless.",t:"Light malt, subtle corn sweetness, and a clean finish."},stella-artois-12pk:{n:"Stella Artois 12-Pack",p:17.99,c:"beer",s:"import",sz:"12-Pack",a:"5%",cal:"150 per 12oz",o:"Belgium",i:"https://kimi-web-img.moonshot.cn/img/titos-next.transforms.svdcdn.com/e46c9fd776e2b12b07298858332919ec22f12bce.jpeg",d:"Belgian pilsner with a rich heritage. Crisp and sophisticated.",t:"Crisp malt, subtle hops, and a clean, slightly bitter finish."},heineken-12pk:{n:"Heineken 12-Pack",p:17.99,c:"beer",s:"import",sz:"12-Pack",a:"5%",cal:"150 per 12oz",o:"Netherlands",i:"https://kimi-web-img.moonshot.cn/img/titos-next.transforms.svdcdn.com/e46c9fd776e2b12b07298858332919ec22f12bce.jpeg",d:"Premium Dutch lager. Distinctive green bottle, distinctive taste.",t:"Crisp malt, mild bitterness, and a clean, refreshing finish."},blue-moon-12pk:{n:"Blue Moon Belgian White 12-Pack",p:16.99,c:"beer",s:"craft",sz:"12-Pack",a:"5.4%",cal:"168 per 12oz",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/titos-next.transforms.svdcdn.com/e46c9fd776e2b12b07298858332919ec22f12bce.jpeg",d:"Belgian-style wheat ale brewed with Valencia orange peel.",t:"Orange, coriander, and wheat with a smooth, creamy finish."},shock-top-12pk:{n:"Shock Top Belgian White 12-Pack",p:15.99,c:"beer",s:"craft",sz:"12-Pack",a:"5.2%",cal:"168 per 12oz",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/titos-next.transforms.svdcdn.com/e46c9fd776e2b12b07298858332919ec22f12bce.jpeg",d:"Unfiltered Belgian-style wheat ale with citrus and spice.",t:"Orange, lemon, and coriander with a smooth, wheaty body."},white-claw-12pk:{n:"White Claw Variety 12-Pack",p:18.99,c:"beer",s:"seltzer",sz:"12-Pack",a:"5%",cal:"100 per 12oz",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/titos-next.transforms.svdcdn.com/e46c9fd776e2b12b07298858332919ec22f12bce.jpeg",d:"America's #1 hard seltzer. Refreshing, fruity, and low calorie.",t:"Light, crisp, and refreshing with natural fruit flavors."},truly-12pk:{n:"Truly Hard Seltzer 12-Pack",p:18.99,c:"beer",s:"seltzer",sz:"12-Pack",a:"5%",cal:"100 per 12oz",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/titos-next.transforms.svdcdn.com/e46c9fd776e2b12b07298858332919ec22f12bce.jpeg",d:"Refreshing hard seltzer with bold fruit flavors.",t:"Crisp, clean, and fruity with a light, refreshing finish."},angry-orchard-6pk:{n:"Angry Orchard Crisp Apple 6-Pack",p:10.99,c:"beer",s:"cider",sz:"6-Pack",a:"5%",cal:"190 per 12oz",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/titos-next.transforms.svdcdn.com/e46c9fd776e2b12b07298858332919ec22f12bce.jpeg",d:"America's favorite hard cider. Crisp, refreshing apple flavor.",t:"Sweet apple, subtle tartness, and a crisp, clean finish."},strongbow-6pk:{n:"Strongbow Gold Apple 6-Pack",p:10.99,c:"beer",s:"cider",sz:"6-Pack",a:"5%",cal:"150 per 12oz",o:"England",i:"https://kimi-web-img.moonshot.cn/img/titos-next.transforms.svdcdn.com/e46c9fd776e2b12b07298858332919ec22f12bce.jpeg",d:"English dry cider with a crisp, refreshing apple taste.",t:"Dry apple, subtle sweetness, and a crisp, tart finish."},michelob-ultra-12pk:{n:"Michelob Ultra 12-Pack",p:14.99,c:"beer",s:"domestic",sz:"12-Pack",a:"4.2%",cal:"95 per 12oz",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/titos-next.transforms.svdcdn.com/e46c9fd776e2b12b07298858332919ec22f12bce.jpeg",d:"Superior light beer with only 95 calories and 2.6 carbs.",t:"Ultra-light, crisp, and clean with subtle malt flavor."},natural-light-12pk:{n:"Natural Light 12-Pack",p:8.99,c:"beer",s:"domestic",sz:"12-Pack",a:"4.2%",cal:"95 per 12oz",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/titos-next.transforms.svdcdn.com/e46c9fd776e2b12b07298858332919ec22f12bce.jpeg",d:"America's budget-friendly light beer. Easy drinking.",t:"Very light, crisp, and refreshing with minimal aftertaste."},keystone-light-12pk:{n:"Keystone Light 12-Pack",p:8.99,c:"beer",s:"domestic",sz:"12-Pack",a:"4.1%",cal:"101 per 12oz",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/titos-next.transforms.svdcdn.com/e46c9fd776e2b12b07298858332919ec22f12bce.jpeg",d:"Crisp, clean, and always smooth. The perfect light beer.",t:"Light malt, subtle hops, and a clean, dry finish."},powerball:{n:"Powerball Ticket",p:2.0,c:"lottery",s:"draw",sz:"Per Play",a:"N/A",cal:"N/A",o:"CA Lottery",i:"https://kimi-web-img.moonshot.cn/img/imageio.forbes.com/1d3d23ae2d1183a45a56f94cafaf53c0e63296b9.jpg",d:"America's biggest lottery. Jackpots start at $20 million. Drawings Mon/Wed/Sat.",t:"Pick 5 numbers + Powerball. Add Power Play to multiply prizes."},mega-millions:{n:"Mega Millions Ticket",p:2.0,c:"lottery",s:"draw",sz:"Per Play",a:"N/A",cal:"N/A",o:"CA Lottery",i:"https://kimi-web-img.moonshot.cn/img/usa.inquirer.net/fc091ae4e773f5e8ebeb3080da81ea358417aabe.png",d:"Massive jackpots starting at $20 million. Drawings Tue/Fri.",t:"Pick 5 numbers + Mega Ball. Add Megaplier to multiply winnings up to 5x."},superlotto-plus:{n:"SuperLotto Plus Ticket",p:1.0,c:"lottery",s:"draw",sz:"Per Play",a:"N/A",cal:"N/A",o:"CA Lottery",i:"https://kimi-web-img.moonshot.cn/img/nclottery.com/3f5d8e3b7236edf5f2f49708da548c6555338e15.png",d:"California's own lottery game. Jackpots start at $7 million.",t:"Pick 5 numbers + Mega number. Great odds and big prizes."},daily-3:{n:"Daily 3 Ticket",p:1.0,c:"lottery",s:"daily",sz:"Per Play",a:"N/A",cal:"N/A",o:"CA Lottery",i:"https://kimi-web-img.moonshot.cn/img/nclottery.com/3f5d8e3b7236edf5f2f49708da548c6555338e15.png",d:"Daily drawings with multiple ways to win. Pick your lucky 3 digits.",t:"Straight, box, or straight/box play. Daily chances to win!"},daily-4:{n:"Daily 4 Ticket",p:1.0,c:"lottery",s:"daily",sz:"Per Play",a:"N/A",cal:"N/A",o:"CA Lottery",i:"https://kimi-web-img.moonshot.cn/img/nclottery.com/3f5d8e3b7236edf5f2f49708da548c6555338e15.png",d:"Pick 4 lucky numbers for bigger daily prizes.",t:"Multiple play types for bigger wins. Drawings every day!"},fantasy-5:{n:"Fantasy 5 Ticket",p:1.0,c:"lottery",s:"daily",sz:"Per Play",a:"N/A",cal:"N/A",o:"CA Lottery",i:"https://kimi-web-img.moonshot.cn/img/nclottery.com/3f5d8e3b7236edf5f2f49708da548c6555338e15.png",d:"Pick 5 numbers for daily prizes. Match all 5 for the jackpot!",t:"Daily drawings. Great odds and frequent winners."},scratcher-1:{n:"$1 Scratcher",p:1.0,c:"lottery",s:"scratch",sz:"Per Ticket",a:"N/A",cal:"N/A",o:"CA Lottery",i:"https://kimi-web-img.moonshot.cn/img/lottery-admin.sd.gov/7c35644b1ba7e10d2d7e60cc8bc5ae6fd111f391.png",d:"Instant win fun for just $1. Scratch and win immediately!",t:"Various games available. Top prizes up to $10,000."},scratcher-2:{n:"$2 Scratcher",p:2.0,c:"lottery",s:"scratch",sz:"Per Ticket",a:"N/A",cal:"N/A",o:"CA Lottery",i:"https://kimi-web-img.moonshot.cn/img/lottery-admin.sd.gov/7c35644b1ba7e10d2d7e60cc8bc5ae6fd111f391.png",d:"Bigger prizes for just $2. Instant excitement!",t:"Various games. Top prizes up to $25,000."},scratcher-5:{n:"$5 Scratcher",p:5.0,c:"lottery",s:"scratch",sz:"Per Ticket",a:"N/A",cal:"N/A",o:"CA Lottery",i:"https://kimi-web-img.moonshot.cn/img/lottery-admin.sd.gov/7c35644b1ba7e10d2d7e60cc8bc5ae6fd111f391.png",d:"Mid-tier scratchers with great prize potential.",t:"Various games. Top prizes up to $100,000."},scratcher-10:{n:"$10 Scratcher",p:10.0,c:"lottery",s:"scratch",sz:"Per Ticket",a:"N/A",cal:"N/A",o:"CA Lottery",i:"https://kimi-web-img.moonshot.cn/img/lottery-admin.sd.gov/7c35644b1ba7e10d2d7e60cc8bc5ae6fd111f391.png",d:"High-value scratchers with big prize potential.",t:"Various games. Top prizes up to $1 million."},scratcher-20:{n:"$20 Scratcher",p:20.0,c:"lottery",s:"scratch",sz:"Per Ticket",a:"N/A",cal:"N/A",o:"CA Lottery",i:"https://kimi-web-img.moonshot.cn/img/lottery-admin.sd.gov/7c35644b1ba7e10d2d7e60cc8bc5ae6fd111f391.png",d:"Premium scratchers with massive top prizes.",t:"Various games. Top prizes up to $5 million."},scratcher-30:{n:"$30 Scratcher",p:30.0,c:"lottery",s:"scratch",sz:"Per Ticket",a:"N/A",cal:"N/A",o:"CA Lottery",i:"https://kimi-web-img.moonshot.cn/img/lottery-admin.sd.gov/7c35644b1ba7e10d2d7e60cc8bc5ae6fd111f391.png",d:"The ultimate scratchers. Life-changing top prizes!",t:"Various games. Top prizes up to $10 million!"},ben-jerrys-half-baked:{n:"Ben & Jerry's Half Baked",p:5.99,c:"convenience",s:"icecream",sz:"16oz",a:"N/A",cal:"270 per 1/2 cup",o:"Vermont",i:"https://kimi-web-img.moonshot.cn/img/images.albertsons-media.com/d833b1f762b362ea83fe2cd3f023904db3756fad",d:"Chocolate & vanilla ice cream with cookie dough and brownies.",t:"Rich chocolate and creamy vanilla with chunks of real cookie dough and brownie."},ben-jerrys-cherry-garcia:{n:"Ben & Jerry's Cherry Garcia",p:5.99,c:"convenience",s:"icecream",sz:"16oz",a:"N/A",cal:"250 per 1/2 cup",o:"Vermont",i:"https://kimi-web-img.moonshot.cn/img/www.benjerry.com/1ee7e4c39a90727a552dcfc0b9f69661c8da4dd9.png",d:"Cherry ice cream with cherries and fudge flakes. Named after Jerry Garcia.",t:"Sweet cherry ice cream with real cherries and rich fudge flakes."},ben-jerrys-chunky-monkey:{n:"Ben & Jerry's Chunky Monkey",p:5.99,c:"convenience",s:"icecream",sz:"16oz",a:"N/A",cal:"280 per 1/2 cup",o:"Vermont",i:"https://kimi-web-img.moonshot.cn/img/www.benjerry.com/1ee7e4c39a90727a552dcfc0b9f69661c8da4dd9.png",d:"Banana ice cream with fudge chunks and walnuts.",t:"Creamy banana with rich fudge chunks and crunchy walnuts."},ben-jerrys-netflix:{n:"Ben & Jerry's Netflix & Chill'd",p:5.99,c:"convenience",s:"icecream",sz:"16oz",a:"N/A",cal:"270 per 1/2 cup",o:"Vermont",i:"https://kimi-web-img.moonshot.cn/img/www.benjerry.com/1ee7e4c39a90727a552dcfc0b9f69661c8da4dd9.png",d:"Peanut butter ice cream with sweet & salty pretzel swirls and fudge brownies.",t:"Peanut butter, pretzel, and brownie in perfect harmony."},haagen-dazs-vanilla:{n:"Häagen-Dazs Vanilla",p:5.49,c:"convenience",s:"icecream",sz:"14oz",a:"N/A",cal:"250 per 1/2 cup",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/www.benjerry.com/1ee7e4c39a90727a552dcfc0b9f69661c8da4dd9.png",d:"Pure, creamy vanilla ice cream made with Madagascar vanilla.",t:"Rich, creamy Madagascar vanilla with a smooth, luxurious texture."},haagen-dazs-strawberry:{n:"Häagen-Dazs Strawberry",p:5.49,c:"convenience",s:"icecream",sz:"14oz",a:"N/A",cal:"230 per 1/2 cup",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/www.benjerry.com/1ee7e4c39a90727a552dcfc0b9f69661c8da4dd9.png",d:"Creamy ice cream with sweet, ripe strawberries.",t:"Sweet strawberry ribbons in rich, creamy ice cream."},drumstick-4pk:{n:"Nestle Drumstick 4-Pack",p:6.99,c:"convenience",s:"icecream",sz:"4ct",a:"N/A",cal:"290 each",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/www.benjerry.com/1ee7e4c39a90727a552dcfc0b9f69661c8da4dd9.png",d:"Classic vanilla ice cream cone with chocolate coating and peanuts.",t:"Creamy vanilla, chocolate shell, and crunchy peanuts."},ice-cream-sandwich:{n:"Ice Cream Sandwiches 12ct",p:5.99,c:"convenience",s:"icecream",sz:"12ct",a:"N/A",cal:"180 each",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/www.benjerry.com/1ee7e4c39a90727a552dcfc0b9f69661c8da4dd9.png",d:"Classic vanilla ice cream between two chocolate wafers.",t:"Creamy vanilla ice cream with soft chocolate cake wafers."},reddy-ice-7lb:{n:"Reddy Ice 7lb Bag",p:2.99,c:"convenience",s:"ice",sz:"7lb",a:"N/A",cal:"0",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/www.kroger.com/af0799edb1d93bb5f5fe4d697a1c0df4d5ec07fa",d:"Premium crystal clear cubed ice. Slow-melting and pure.",t:"Pure, clean, and cold. Perfect for any beverage."},reddy-ice-20lb:{n:"Reddy Ice 20lb Bag",p:4.99,c:"convenience",s:"ice",sz:"20lb",a:"N/A",cal:"0",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/www.bayviewliquors.com/1111e827c219917068f585fa86d9d0d84d2aa48c.webp",d:"Bulk bag of crystal clear ice for parties and events.",t:"Pure frozen water — clean, clear, and refreshingly cold."},ocean-spray-cranberry:{n:"Ocean Spray Cranberry Juice",p:3.99,c:"convenience",s:"mixer",sz:"32oz",a:"N/A",cal:"120 per 8oz",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/www.bayviewliquors.com/1111e827c219917068f585fa86d9d0d84d2aa48c.webp",d:"100% cranberry juice cocktail. Tart, refreshing, and perfect for mixing.",t:"Tart cranberry with a hint of sweetness. Great for vodka cranberries."},sprite-2l:{n:"Sprite Lemon-Lime Soda",p:2.99,c:"convenience",s:"mixer",sz:"2L",a:"N/A",cal:"140 per 12oz",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/www.bayviewliquors.com/1111e827c219917068f585fa86d9d0d84d2aa48c.webp",d:"Crisp, clean, and caffeine-free lemon-lime soda.",t:"Bright lemon-lime flavor with refreshing carbonation."},coke-2l:{n:"Coca-Cola Classic",p:2.99,c:"convenience",s:"mixer",sz:"2L",a:"N/A",cal:"140 per 12oz",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/www.bayviewliquors.com/1111e827c219917068f585fa86d9d0d84d2aa48c.webp",d:"The original refreshing cola. Perfect on its own or as a mixer.",t:"Classic cola sweetness with caramel notes and crisp carbonation."},diet-coke-2l:{n:"Diet Coke",p:2.99,c:"convenience",s:"mixer",sz:"2L",a:"N/A",cal:"0",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/www.bayviewliquors.com/1111e827c219917068f585fa86d9d0d84d2aa48c.webp",d:"Zero-calorie cola with the same great Diet Coke taste.",t:"Crisp, light cola flavor with no calories."},ginger-ale-2l:{n:"Canada Dry Ginger Ale",p:2.99,c:"convenience",s:"mixer",sz:"2L",a:"N/A",cal:"90 per 12oz",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/www.bayviewliquors.com/1111e827c219917068f585fa86d9d0d84d2aa48c.webp",d:"Crisp, clean ginger ale. The perfect mixer for whiskey.",t:"Light ginger flavor with crisp carbonation."},tonic-water-1l:{n:"Fever-Tree Tonic Water",p:3.99,c:"convenience",s:"mixer",sz:"1L",a:"N/A",cal:"80 per 8oz",o:"UK",i:"https://kimi-web-img.moonshot.cn/img/www.bayviewliquors.com/1111e827c219917068f585fa86d9d0d84d2aa48c.webp",d:"Premium tonic water with natural quinine. Elevates any gin.",t:"Bright, bitter quinine with subtle citrus and botanical notes."},club-soda-1l:{n:"Club Soda",p:1.99,c:"convenience",s:"mixer",sz:"1L",a:"N/A",cal:"0",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/www.bayviewliquors.com/1111e827c219917068f585fa86d9d0d84d2aa48c.webp",d:"Clean, crisp club soda. Essential for any home bar.",t:"Pure carbonated water with a clean, neutral taste."},red-bull-4pk:{n:"Red Bull Energy Drink 4-Pack",p:8.99,c:"convenience",s:"energy",sz:"4ct",a:"N/A",cal:"110 per 8oz",o:"Austria",i:"https://kimi-web-img.moonshot.cn/img/www.bayviewliquors.com/1111e827c219917068f585fa86d9d0d84d2aa48c.webp",d:"The original energy drink. Gives you wings.",t:"Sweet, slightly tart, and effervescent."},monster-green-4pk:{n:"Monster Energy Green 4-Pack",p:7.99,c:"convenience",s:"energy",sz:"4ct",a:"N/A",cal:"210 per 16oz",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/www.bayviewliquors.com/1111e827c219917068f585fa86d9d0d84d2aa48c.webp",d:"Mean green energy. Unleash the beast.",t:"Sweet citrus with a smooth energy blend."},lays-classic:{n:"Lay's Classic Potato Chips",p:3.99,c:"convenience",s:"snacks",sz:"8oz",a:"N/A",cal:"160 per 15 chips",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/www.bayviewliquors.com/1111e827c219917068f585fa86d9d0d84d2aa48c.webp",d:"America's favorite potato chip. Light, crispy, and perfectly salted.",t:"Crispy potato with just the right amount of salt."},doritos-nacho:{n:"Doritos Nacho Cheese",p:3.99,c:"convenience",s:"snacks",sz:"9.25oz",a:"N/A",cal:"150 per 11 chips",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/www.bayviewliquors.com/1111e827c219917068f585fa86d9d0d84d2aa48c.webp",d:"Bold nacho cheese flavored tortilla chips.",t:"Bold cheese and corn flavor with a satisfying crunch."},cheetos-crunchy:{n:"Cheetos Crunchy",p:3.99,c:"convenience",s:"snacks",sz:"8.5oz",a:"N/A",cal:"160 per 21 pieces",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/www.bayviewliquors.com/1111e827c219917068f585fa86d9d0d84d2aa48c.webp",d:"Crunchy cheese flavored snacks. Dangerously good.",t:"Bold cheese flavor with a satisfying crunchy texture."},planters-peanuts:{n:"Planters Cocktail Peanuts",p:3.49,c:"convenience",s:"snacks",sz:"16oz",a:"N/A",cal:"170 per 1oz",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/www.bayviewliquors.com/1111e827c219917068f585fa86d9d0d84d2aa48c.webp",d:"Roasted and salted peanuts. The classic bar snack.",t:"Crunchy roasted peanuts with the perfect amount of salt."},jack-links-beef:{n:"Jack Link's Beef Jerky",p:6.99,c:"convenience",s:"snacks",sz:"3.25oz",a:"N/A",cal:"80 per 1oz",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/www.bayviewliquors.com/1111e827c219917068f585fa86d9d0d84d2aa48c.webp",d:"Premium beef jerky. Savory, smoky, and satisfying.",t:"Savory beef with smoky, peppery seasoning."},twizzlers:{n:"Twizzlers Strawberry",p:2.99,c:"convenience",s:"snacks",sz:"16oz",a:"N/A",cal:"120 per 4 pieces",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/www.bayviewliquors.com/1111e827c219917068f585fa86d9d0d84d2aa48c.webp",d:"The twist you can't resist. Low-fat strawberry candy.",t:"Sweet strawberry with a chewy, satisfying texture."},gum-orbit:{n:"Orbit Peppermint Gum",p:1.99,c:"convenience",s:"snacks",sz:"14ct",a:"N/A",cal:"5 per piece",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/www.bayviewliquors.com/1111e827c219917068f585fa86d9d0d84d2aa48c.webp",d:"A good clean feeling. Sugar-free peppermint gum.",t:"Cool peppermint freshness that lasts."},arizona-watermelon:{n:"Arizona Watermelon Juice",p:1.99,c:"convenience",s:"mixer",sz:"23oz",a:"N/A",cal:"90 per 8oz",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/www.bayviewliquors.com/1111e827c219917068f585fa86d9d0d84d2aa48c.webp",d:"Refreshing watermelon fruit juice cocktail.",t:"Sweet watermelon with a refreshing, fruity flavor."},dole-pineapple:{n:"Dole Pineapple Juice",p:1.99,c:"convenience",s:"mixer",sz:"8.4oz",a:"N/A",cal:"130 per 8oz",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/www.bayviewliquors.com/1111e827c219917068f585fa86d9d0d84d2aa48c.webp",d:"100% pineapple juice. Sweet, tropical, and refreshing.",t:"Sweet, tangy pineapple with tropical freshness."},bloody-mary-mix:{n:"Bloody Mary Mix",p:4.99,c:"convenience",s:"mixer",sz:"32oz",a:"N/A",cal:"40 per 8oz",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/www.bayviewliquors.com/1111e827c219917068f585fa86d9d0d84d2aa48c.webp",d:"Spicy tomato-based mix for the perfect Bloody Mary.",t:"Rich tomato, Worcestershire, hot sauce, and spices."},margarita-mix:{n:"Margarita Mix",p:4.99,c:"convenience",s:"mixer",sz:"32oz",a:"N/A",cal:"100 per 8oz",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/www.bayviewliquors.com/1111e827c219917068f585fa86d9d0d84d2aa48c.webp",d:"Sweet and sour mix for perfect margaritas every time.",t:"Tart lime and sweet citrus balanced perfectly."},pickled-vegetables:{n:"Pickled Vegetables",p:3.99,c:"convenience",s:"garnish",sz:"16oz",a:"N/A",cal:"10 per 1oz",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/www.bayviewliquors.com/1111e827c219917068f585fa86d9d0d84d2aa48c.webp",d:"Assorted pickled vegetables. Perfect for Bloody Mary garnishes.",t:"Tangy, briny, and crunchy with a vinegar kick."},olives:{n:"Green Olives",p:3.49,c:"convenience",s:"garnish",sz:"10oz",a:"N/A",cal:"25 per 5 olives",o:"Spain",i:"https://kimi-web-img.moonshot.cn/img/www.bayviewliquors.com/1111e827c219917068f585fa86d9d0d84d2aa48c.webp",d:"Pimento-stuffed green olives. Classic martini garnish.",t:"Briny, salty, and slightly bitter with a pimento center."},maraschino-cherries:{n:"Maraschino Cherries",p:3.99,c:"convenience",s:"garnish",sz:"10oz",a:"N/A",cal:"40 per 1oz",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/www.bayviewliquors.com/1111e827c219917068f585fa86d9d0d84d2aa48c.webp",d:"Bright red cherries in syrup. Essential for Manhattans and Old Fashioneds.",t:"Sweet, syrupy, and slightly almond-flavored."},twang-beer-salt:{n:"Twang Beer Salt Lemon-Lime",p:1.49,c:"convenience",s:"garnish",sz:"1.4oz",a:"N/A",cal:"0",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/www.bayviewliquors.com/1111e827c219917068f585fa86d9d0d84d2aa48c.webp",d:"100% original beer salt. The perfect rim for Mexican beers.",t:"Salty, tangy lemon-lime flavor that enhances any beer."},marlboro-red:{n:"Marlboro Red",p:8.99,c:"tobacco",s:"cigarettes",sz:"20ct",a:"N/A",cal:"N/A",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/p.turbosquid.com/12e3209e1f18d04cf35f6a4bac1a0b46abe36c2e.jpg",d:"The world's best-selling cigarette. Full-flavored and robust.",t:"Full-bodied, robust tobacco flavor with a smooth draw."},marlboro-gold:{n:"Marlboro Gold",p:8.99,c:"tobacco",s:"cigarettes",sz:"20ct",a:"N/A",cal:"N/A",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/p.turbosquid.com/12e3209e1f18d04cf35f6a4bac1a0b46abe36c2e.jpg",d:"Lighter version of the classic. Smooth and mellow.",t:"Smooth, mellow tobacco with a lighter body."},marlboro-menthol:{n:"Marlboro Menthol",p:9.49,c:"tobacco",s:"cigarettes",sz:"20ct",a:"N/A",cal:"N/A",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/i5.samsclubimages.com/877f9e6408362e3fb5ee907bf931604636e9b51b.jpeg",d:"Cool menthol freshness with rich tobacco.",t:"Cool menthol with rich tobacco undertones."},marlboro-smooth:{n:"Marlboro Smooth Menthol",p:9.49,c:"tobacco",s:"cigarettes",sz:"20ct",a:"N/A",cal:"N/A",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/i5.samsclubimages.com/877f9e6408362e3fb5ee907bf931604636e9b51b.jpeg",d:"Ultra-smooth menthol in 100s size. Longer, cooler smoke.",t:"Ultra-smooth menthol with a clean, refreshing finish."},newport-box:{n:"Newport Box Menthol",p:9.49,c:"tobacco",s:"cigarettes",sz:"20ct",a:"N/A",cal:"N/A",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/p.turbosquid.com/12e3209e1f18d04cf35f6a4bac1a0b46abe36c2e.jpg",d:"America's #1 menthol cigarette. Bold and refreshing.",t:"Intense menthol freshness with full tobacco flavor."},newport-100s:{n:"Newport 100s Menthol",p:9.99,c:"tobacco",s:"cigarettes",sz:"20ct",a:"N/A",cal:"N/A",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/p.turbosquid.com/12e3209e1f18d04cf35f6a4bac1a0b46abe36c2e.jpg",d:"Longer Newport menthol for extended satisfaction.",t:"Bold menthol with rich tobacco in a longer format."},camel-blue:{n:"Camel Blue",p:8.99,c:"tobacco",s:"cigarettes",sz:"20ct",a:"N/A",cal:"N/A",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/p.turbosquid.com/12e3209e1f18d04cf35f6a4bac1a0b46abe36c2e.jpg",d:"Turkish and domestic blend. Smooth and distinctive.",t:"Rich, exotic Turkish tobacco with a smooth finish."},camel-crush:{n:"Camel Crush",p:9.49,c:"tobacco",s:"cigarettes",sz:"20ct",a:"N/A",cal:"N/A",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/p.turbosquid.com/12e3209e1f18d04cf35f6a4bac1a0b46abe36c2e.jpg",d:"Regular to menthol with a click. Two smokes in one.",t:"Rich tobacco that transforms to cool menthol when crushed."},american-spirit-blue:{n:"American Spirit Blue",p:10.99,c:"tobacco",s:"cigarettes",sz:"20ct",a:"N/A",cal:"N/A",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/p.turbosquid.com/12e3209e1f18d04cf35f6a4bac1a0b46abe36c2e.jpg",d:"100% additive-free natural tobacco. Full-bodied.",t:"Pure, natural tobacco with no additives. Rich and full."},american-spirit-yellow:{n:"American Spirit Yellow",p:10.99,c:"tobacco",s:"cigarettes",sz:"20ct",a:"N/A",cal:"N/A",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/p.turbosquid.com/12e3209e1f18d04cf35f6a4bac1a0b46abe36c2e.jpg",d:"100% additive-free natural tobacco. Mellow and smooth.",t:"Pure, natural tobacco in a lighter, smoother blend."},pall-mall-red:{n:"Pall Mall Red",p:7.99,c:"tobacco",s:"cigarettes",sz:"20ct",a:"N/A",cal:"N/A",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/p.turbosquid.com/12e3209e1f18d04cf35f6a4bac1a0b46abe36c2e.jpg",d:"Premium tobacco at a great value. Bold and satisfying.",t:"Rich, bold tobacco flavor with a smooth draw."},pall-mall-blue:{n:"Pall Mall Blue",p:7.99,c:"tobacco",s:"cigarettes",sz:"20ct",a:"N/A",cal:"N/A",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/p.turbosquid.com/12e3209e1f18d04cf35f6a4bac1a0b46abe36c2e.jpg",d:"Smooth, mellow tobacco at an affordable price.",t:"Smooth, mellow tobacco with a clean finish."},elf-bar-600:{n:"Elf Bar 600 Disposable",p:14.99,c:"tobacco",s:"vape",sz:"600 Puffs",a:"N/A",cal:"N/A",o:"China",i:"https://kimi-web-img.moonshot.cn/img/hempelf.com/309f975b34c1344fcaf621e30099ee1bfee1a17e.jpg",d:"Compact disposable vape. 2ml e-liquid, no charging needed.",t:"Various flavors — strawberry, mango, mint, tobacco, and more."},elf-bar-fs7000:{n:"Elf Bar FS7000",p:17.99,c:"tobacco",s:"vape",sz:"7000 Puffs",a:"N/A",cal:"N/A",o:"China",i:"https://kimi-web-img.moonshot.cn/img/uvapeshop.com/04110a72d62329d53bf6b8f4cf2a6b63ec8f0842.jpg",d:"Rechargeable disposable with 7000 puffs. Adjustable airflow.",t:"Rich, intense flavors with smooth vapor production."},geek-bar:{n:"Geek Bar Pulse",p:16.99,c:"tobacco",s:"vape",sz:"15000 Puffs",a:"N/A",cal:"N/A",o:"China",i:"https://kimi-web-img.moonshot.cn/img/uvapeshop.com/04110a72d62329d53bf6b8f4cf2a6b63ec8f0842.jpg",d:"High-capacity disposable vape with 15,000 puffs.",t:"Premium flavors with consistent, smooth vapor."},juul-device:{n:"Juul Device",p:9.99,c:"tobacco",s:"vape",sz:"Device",a:"N/A",cal:"N/A",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/uvapeshop.com/04110a72d62329d53bf6b8f4cf2a6b63ec8f0842.jpg",d:"The sleek, compact vaping device. Easy to use.",t:"Satisfying nicotine delivery in a discreet device."},juul-pods-virginia:{n:"Juul Virginia Tobacco Pods",p:19.99,c:"tobacco",s:"vape",sz:"4-Pack",a:"N/A",cal:"N/A",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/uvapeshop.com/04110a72d62329d53bf6b8f4cf2a6b63ec8f0842.jpg",d:"Classic tobacco flavor pods for Juul devices.",t:"Rich, authentic tobacco flavor with satisfying nicotine."},juul-pods-menthol:{n:"Juul Menthol Pods",p:19.99,c:"tobacco",s:"vape",sz:"4-Pack",a:"N/A",cal:"N/A",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/uvapeshop.com/04110a72d62329d53bf6b8f4cf2a6b63ec8f0842.jpg",d:"Cool menthol flavor pods for Juul devices.",t:"Crisp, cool menthol with satisfying nicotine delivery."},backwoods-honey:{n:"Backwoods Honey Cigars",p:5.99,c:"tobacco",s:"cigars",sz:"5-Pack",a:"N/A",cal:"N/A",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/p.turbosquid.com/12e3209e1f18d04cf35f6a4bac1a0b46abe36c2e.jpg",d:"Machine-made cigars with sweet honey flavor.",t:"Sweet honey and mild tobacco with a smooth draw."},backwoods-russian:{n:"Backwoods Russian Cream",p:5.99,c:"tobacco",s:"cigars",sz:"5-Pack",a:"N/A",cal:"N/A",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/p.turbosquid.com/12e3209e1f18d04cf35f6a4bac1a0b46abe36c2e.jpg",d:"Creamy, vanilla-flavored machine-made cigars.",t:"Rich vanilla cream and mild tobacco flavor."},swisher-sweets:{n:"Swisher Sweets Original",p:4.99,c:"tobacco",s:"cigars",sz:"5-Pack",a:"N/A",cal:"N/A",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/p.turbosquid.com/12e3209e1f18d04cf35f6a4bac1a0b46abe36c2e.jpg",d:"Sweet, mild cigarillos. America's favorite.",t:"Sweet, mild tobacco with a smooth, easy draw."},white-owl-white-grape:{n:"White Owl White Grape",p:4.99,c:"tobacco",s:"cigars",sz:"5-Pack",a:"N/A",cal:"N/A",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/p.turbosquid.com/12e3209e1f18d04cf35f6a4bac1a0b46abe36c2e.jpg",d:"Sweet white grape flavored cigarillos.",t:"Sweet white grape with mild tobacco."},raw-papers:{n:"RAW Rolling Papers",p:3.99,c:"tobacco",s:"accessories",sz:"50ct",a:"N/A",cal:"N/A",o:"Spain",i:"https://kimi-web-img.moonshot.cn/img/p.turbosquid.com/12e3209e1f18d04cf35f6a4bac1a0b46abe36c2e.jpg",d:"Unrefined, natural rolling papers. The connoisseur's choice.",t:"Clean, natural paper that doesn't interfere with flavor."},zig-zag-papers:{n:"Zig-Zag Rolling Papers",p:2.99,c:"tobacco",s:"accessories",sz:"32ct",a:"N/A",cal:"N/A",o:"France",i:"https://kimi-web-img.moonshot.cn/img/p.turbosquid.com/12e3209e1f18d04cf35f6a4bac1a0b46abe36c2e.jpg",d:"Classic French rolling papers. Slow-burning and reliable.",t:"Thin, slow-burning paper for a smooth smoke."},bic-lighters:{n:"BIC Lighters",p:1.99,c:"tobacco",s:"accessories",sz:"1ct",a:"N/A",cal:"N/A",o:"USA",i:"https://kimi-web-img.moonshot.cn/img/p.turbosquid.com/12e3209e1f18d04cf35f6a4bac1a0b46abe36c2e.jpg",d:"Reliable, child-resistant pocket lighters. Assorted colors.",t:"Reliable flame every time."},clipper-lighters:{n:"Clipper Lighters",p:2.49,c:"tobacco",s:"accessories",sz:"1ct",a:"N/A",cal:"N/A",o:"Spain",i:"https://kimi-web-img.moonshot.cn/img/p.turbosquid.com/12e3209e1f18d04cf35f6a4bac1a0b46abe36c2e.jpg",d:"Refillable, flint-based lighters with a built-in packing tool.",t:"Refillable and eco-friendly with a handy packing tool."},};
+
+const CAT={spirits:{n:"Spirits",subs:["whiskey","vodka","tequila","rum","gin","cognac","brandy"]},
+wine:{n:"Wine",subs:["red","white","rose","sparkling"]},
+beer:{n:"Beer",subs:["import","domestic","craft","seltzer","cider"]},
+lottery:{n:"Lottery",subs:["draw","daily","scratch"]},
+convenience:{n:"Convenience",subs:["icecream","ice","mixer","energy","snacks","garnish"]},
+tobacco:{n:"Tobacco",subs:["cigarettes","vape","cigars","accessories"]}};
+const SUBN={whiskey:"Whiskey",vodka:"Vodka",tequila:"Tequila",rum:"Rum",gin:"Gin",cognac:"Cognac",brandy:"Brandy",
+red:"Red Wine",white:"White Wine",rose:"Rosé",sparkling:"Sparkling",
+import:"Import Beer",domestic:"Domestic Beer",craft:"Craft Beer",seltzer:"Hard Seltzer",cider:"Cider",
+draw:"Draw Games",daily:"Daily Games",scratch:"Scratchers",
+icecream:"Ice Cream",ice:"Ice",mixer:"Mixers & Soda",energy:"Energy Drinks",snacks:"Snacks",garnish:"Garnishes",
+cigarettes:"Cigarettes",vape:"Vapes",cigars:"Cigars",accessories:"Accessories"};
+let cart=JSON.parse(localStorage.getItem('ravicart')||'{}');
+let currentCat='';
+let currentSub='all';
+
+function formatPrice(n){return '$'+n.toFixed(2)}
+function getCartCount(){return Object.values(cart).reduce((a,b)=>a+b,0)}
+function getCartTotal(){return Object.entries(cart).reduce((a,[k,v])=>a+(P[k].p*v),0)}
+function saveCart(){localStorage.setItem('ravicart',JSON.stringify(cart));updateCartUI()}
+function addToCart(id){cart[id]=(cart[id]||0)+1;saveCart();toggleCart(true)}
+function removeFromCart(id){delete cart[id];saveCart()}
+function updateQty(id,delta){cart[id]=(cart[id]||0)+delta;if(cart[id]<=0)delete cart[id];saveCart()}
+
+function updateCartUI(){
+    const count=getCartCount();
+    const badge=document.getElementById('cartCount');
+    badge.textContent=count;
+    badge.style.display=count>0?'flex':'none';
+    const itemsDiv=document.getElementById('cartItems');
+    const footer=document.getElementById('cartFooter');
+    if(count===0){itemsDiv.innerHTML='<div class="cart-empty"><p>Your cart is empty</p><p style="font-size:12px;margin-top:8px">Browse our products and add items</p></div>';footer.style.display='none';return}
+    footer.style.display='block';
+    let html='';
+    for(const[id,qty]of Object.entries(cart)){
+        const p=P[id];
+        html+=`<div class="cart-item">
+            <img src="${p.i}" class="cart-item-img" alt="${p.n}">
+            <div class="cart-item-info">
+                <h4>${p.n}</h4>
+                <p>${p.sz}</p>
+                <div class="cart-item-qty">
+                    <button onclick="updateQty('${id}',-1)">−</button>
+                    <span>${qty}</span>
+                    <button onclick="updateQty('${id}',1)">+</button>
+                </div>
+            </div>
+            <div style="text-align:right">
+                <div style="font-weight:600;font-size:14px">${formatPrice(p.p*qty)}</div>
+                <button class="cart-item-remove" onclick="removeFromCart('${id}')">Remove</button>
+            </div>
+        </div>`;
+    }
+    itemsDiv.innerHTML=html;
+    document.getElementById('cartSubtotal').textContent=formatPrice(getCartTotal());
+    document.getElementById('cartTotal').textContent=formatPrice(getCartTotal());
+}
+
+function toggleCart(forceOpen){
+    const overlay=document.getElementById('cartOverlay');
+    const backdrop=document.getElementById('cartBackdrop');
+    const isOpen=overlay.classList.contains('open');
+    if(forceOpen===true||!isOpen){overlay.classList.add('open');backdrop.classList.add('open')}
+    else{overlay.classList.remove('open');backdrop.classList.remove('open')}
+}
+
+function setActiveNav(cat){
+    document.querySelectorAll('.main-nav a').forEach(a=>a.classList.remove('active'));
+    const nav=document.querySelector(`.main-nav a[data-cat="${cat}"]`);
+    if(nav)nav.classList.add('active');
+}
+
+function renderProductCard(id,p){
+    return `<div class="product-card" onclick="showProduct('${id}')">
+        <div class="product-image-wrap">
+            <img src="${p.i}" alt="${p.n}">
+            <button class="add-cart-btn" onclick="event.stopPropagation();addToCart('${id}')">Add to Cart</button>
+        </div>
+        <div class="product-info">
+            <h3>${p.n}</h3>
+            <p class="desc">${p.sz} &bull; ${p.o}</p>
+            <p class="price">${formatPrice(p.p)}</p>
+        </div>
+    </div>`;
+}
+
+function showHome(){
+    currentCat='';
+    setActiveNav('');
+    const app=document.getElementById('app');
+    let html=`<section class="hero" id="home">
         <div class="hero-bg"></div>
         <div class="hero-shelf hero-shelf-1"></div>
         <div class="hero-shelf hero-shelf-2"></div>
         <div class="hero-shelf hero-shelf-3"></div>
-        <span class="hero-bottle" style="top:18%;left:8%;">&#127870;</span>
-        <span class="hero-bottle" style="top:22%;left:18%;font-size:22px;">&#127863;</span>
-        <span class="hero-bottle" style="top:15%;left:28%;font-size:26px;">&#129371;</span>
-        <span class="hero-bottle" style="top:20%;left:72%;font-size:24px;">&#127864;</span>
-        <span class="hero-bottle" style="top:16%;left:85%;font-size:20px;">&#127866;</span>
-        <span class="hero-bottle" style="top:43%;left:12%;font-size:24px;">&#127870;</span>
-        <span class="hero-bottle" style="top:48%;left:82%;font-size:22px;">&#129371;</span>
-        <span class="hero-bottle" style="top:68%;left:35%;font-size:26px;">&#127863;</span>
-        <span class="hero-bottle" style="top:72%;left:65%;font-size:20px;">&#127864;</span>
+        <span class="hero-bottle" style="top:18%;left:8%">&#127870;</span>
+        <span class="hero-bottle" style="top:22%;left:18%;font-size:22px">&#127863;</span>
+        <span class="hero-bottle" style="top:15%;left:28%;font-size:26px">&#129371;</span>
+        <span class="hero-bottle" style="top:20%;left:72%;font-size:24px">&#127864;</span>
+        <span class="hero-bottle" style="top:16%;left:85%;font-size:20px">&#127866;</span>
         <div class="hero-content">
             <div class="hero-label">Covina, California</div>
             <h1>Your Neighborhood<br><em>Destination</em></h1>
             <p class="hero-subtitle">Beer, Wine, Spirits &amp; More &mdash; Open Late Daily</p>
-            <a href="#spirits" class="hero-cta">
+            <a href="#" class="hero-cta" onclick="showCategory('spirits');return false">
                 Explore Collection
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
         </div>
         <div class="hero-info">
-            <span>Mon-Thu 8AM-12AM</span>
-            <span>&bull;</span>
-            <span>Fri-Sat 8AM-1AM</span>
-            <span>&bull;</span>
-            <span>Sun 8AM-12AM</span>
+            <span>Mon-Thu 8AM-12AM</span><span>&bull;</span><span>Fri-Sat 8AM-1AM</span><span>&bull;</span><span>Sun 8AM-12AM</span>
         </div>
-    </section>
+    </section>`;
 
-    
-    <div class="section-header" id="spirits">
-        <h2>Spirits &amp; <em>Liquors</em></h2>
-        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank">View All</a>
-    </div>
-    <section class="products-section">
-        <div class="product-grid">
-            <div class="product-card" onclick="window.location.href='product.html?id=jack-daniels'">
-                <div class="product-image-wrap">
-                    <img src="https://kimi-web-img.moonshot.cn/img/cdn.mos.cms.futurecdn.net/bd78db52e46ca000dd86edc571a9c397ba7036b8.jpg" alt="Jack Daniel's Old No. 7">
-                    <span class="product-badge ">Best Seller</span>
-                    <div class="order-overlay">
-                        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats" onclick="event.stopPropagation()">UberEats</a>
-                        <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash" onclick="event.stopPropagation()">DoorDash</a>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Jack Daniel's Old No. 7</h3>
-                    <p class="desc">Tennessee Whiskey, 750ml</p>
-                    <p class="price">$28.99</p>
-                </div>
-            </div>
-<div class="product-card" onclick="window.location.href='product.html?id=jameson'">
-                <div class="product-image-wrap">
-                    <img src="https://kimi-web-img.moonshot.cn/img/www.thebottleclub.com/eb382c2624dbc824789b6ebe51a8ba91293630c8.jpg" alt="Jameson Irish Whiskey">
-                    <span class="product-badge gold">On Sale</span>
-                    <div class="order-overlay">
-                        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats" onclick="event.stopPropagation()">UberEats</a>
-                        <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash" onclick="event.stopPropagation()">DoorDash</a>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Jameson Irish Whiskey</h3>
-                    <p class="desc">Triple Distilled, 750ml</p>
-                    <p class="price"><span class="from">$24.64</span> <span style="text-decoration:line-through;color:var(--text-muted);font-weight:400;">$28.99</span></p>
-                </div>
-            </div>
-<div class="product-card" onclick="window.location.href='product.html?id=patron-silver'">
-                <div class="product-image-wrap">
-                    <img src="https://kimi-web-img.moonshot.cn/img/www.patrontequila.com/08959a7909de1cabae862777a9fc3490aa028883.png" alt="Patrón Silver Tequila">
-                    <span class="product-badge gold">Popular</span>
-                    <div class="order-overlay">
-                        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats" onclick="event.stopPropagation()">UberEats</a>
-                        <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash" onclick="event.stopPropagation()">DoorDash</a>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Patrón Silver Tequila</h3>
-                    <p class="desc">100% Agave, 750ml</p>
-                    <p class="price">$42.99</p>
-                </div>
-            </div>
-<div class="product-card" onclick="window.location.href='product.html?id=titos'">
-                <div class="product-image-wrap">
-                    <img src="https://kimi-web-img.moonshot.cn/img/cdn11.bigcommerce.com/195a6c6cd19a88cf7c34ef2def6ee13366243463.jpg" alt="Tito's Handmade Vodka">
-                    
-                    <div class="order-overlay">
-                        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats" onclick="event.stopPropagation()">UberEats</a>
-                        <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash" onclick="event.stopPropagation()">DoorDash</a>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Tito's Handmade Vodka</h3>
-                    <p class="desc">Gluten-Free, 1.75L</p>
-                    <p class="price">$32.99</p>
-                </div>
-            </div>
-<div class="product-card" onclick="window.location.href='product.html?id=new-amsterdam'">
-                <div class="product-image-wrap">
-                    <img src="https://kimi-web-img.moonshot.cn/img/i5.walmartimages.com/f565cce7f3cfb3ac23d4e4e167f478eebf24a9ce.jpeg" alt="New Amsterdam Vodka">
-                    <span class="product-badge ">Sale</span>
-                    <div class="order-overlay">
-                        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats" onclick="event.stopPropagation()">UberEats</a>
-                        <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash" onclick="event.stopPropagation()">DoorDash</a>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>New Amsterdam Vodka</h3>
-                    <p class="desc">5x Distilled, 750ml</p>
-                    <p class="price"><span class="from">$13.99</span> <span style="text-decoration:line-through;color:var(--text-muted);font-weight:400;">$16.99</span></p>
-                </div>
-            </div>
-<div class="product-card" onclick="window.location.href='product.html?id=bacardi'">
-                <div class="product-image-wrap">
-                    <img src="https://kimi-web-img.moonshot.cn/img/media.liquormax.com/e44282b8f5cb5c1eecc24ff4822015531d5c0da2.webp" alt="Bacardi Superior Rum">
-                    
-                    <div class="order-overlay">
-                        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats" onclick="event.stopPropagation()">UberEats</a>
-                        <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash" onclick="event.stopPropagation()">DoorDash</a>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Bacardi Superior Rum</h3>
-                    <p class="desc">White Rum, 750ml</p>
-                    <p class="price">$16.99</p>
-                </div>
-            </div>
-<div class="product-card" onclick="window.location.href='product.html?id=bacardi-collection'">
-                <div class="product-image-wrap">
-                    <img src="https://kimi-web-img.moonshot.cn/img/d323g1xugy1rkz.cloudfront.net/fa359633f5eb88b0892429311465dc3bfcb830a9.jpg" alt="Bacardi Collection">
-                    <span class="product-badge gold">Premium</span>
-                    <div class="order-overlay">
-                        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats" onclick="event.stopPropagation()">UberEats</a>
-                        <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash" onclick="event.stopPropagation()">DoorDash</a>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Bacardi Collection</h3>
-                    <p class="desc">Superior, Coquito, Reserva 8</p>
-                    <p class="price">From $19.99</p>
-                </div>
-            </div>
-<div class="product-card" onclick="window.location.href='product.html?id=titos-bundle'">
-                <div class="product-image-wrap">
-                    <img src="https://kimi-web-img.moonshot.cn/img/titos-next.transforms.svdcdn.com/e46c9fd776e2b12b07298858332919ec22f12bce.jpeg" alt="Tito's & Mixers Bundle">
-                    
-                    <div class="order-overlay">
-                        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats" onclick="event.stopPropagation()">UberEats</a>
-                        <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash" onclick="event.stopPropagation()">DoorDash</a>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Tito's & Mixers Bundle</h3>
-                    <p class="desc">Vodka + Bloody Mary Kit</p>
-                    <p class="price">$38.99</p>
-                </div>
-            </div>
+    for(const[catKey,catData]of Object.entries(CAT)){
+        const catProducts=Object.entries(P).filter(([k,v])=>v.c===catKey);
+        if(catProducts.length===0)continue;
+        const cards=catProducts.slice(0,8).map(([k,v])=>renderProductCard(k,v)).join('');
+        html+=`<div class="section-header" id="${catKey}">
+            <h2>${catData.n}</h2>
+            <a href="#" onclick="showCategory('${catKey}');return false">View All (${catProducts.length})</a>
         </div>
-    </section>
+        <section class="products-section">
+            <div class="product-grid">${cards}</div>
+        </section>`;
+    }
 
-    <div class="section-header" id="wine">
-        <h2>Fine <em>Wines</em></h2>
-        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank">View All</a>
-    </div>
-    <section class="products-section">
-        <div class="product-grid">
-            <div class="product-card" onclick="window.location.href='product.html?id=barefoot-collection'">
-                <div class="product-image-wrap">
-                    <img src="https://kimi-web-img.moonshot.cn/img/www.barefootwine.com/e6810136e4c23bfc3514923ba39346ef365cd7cd.jpg" alt="Barefoot Wine Collection">
-                    <span class="product-badge ">Best Seller</span>
-                    <div class="order-overlay">
-                        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats" onclick="event.stopPropagation()">UberEats</a>
-                        <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash" onclick="event.stopPropagation()">DoorDash</a>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Barefoot Wine Collection</h3>
-                    <p class="desc">Moscato, Pinot Grigio, Cabernet, Rosé</p>
-                    <p class="price">From $6.99</p>
-                </div>
-            </div>
-<div class="product-card" onclick="window.location.href='product.html?id=barefoot-pink'">
-                <div class="product-image-wrap">
-                    <img src="https://kimi-web-img.moonshot.cn/img/ik.imagekit.io/fc27a42a585f61330ec043ba78be8167a20bd151.png" alt="Barefoot Pink Moscato">
-                    <span class="product-badge gold">Sweet</span>
-                    <div class="order-overlay">
-                        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats" onclick="event.stopPropagation()">UberEats</a>
-                        <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash" onclick="event.stopPropagation()">DoorDash</a>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Barefoot Pink Moscato</h3>
-                    <p class="desc">Sweet & Fruity, 1.5L</p>
-                    <p class="price">$10.99</p>
-                </div>
-            </div>
-<div class="product-card" onclick="window.location.href='product.html?id=barefoot-selection'">
-                <div class="product-image-wrap">
-                    <img src="https://kimi-web-img.moonshot.cn/img/i5.walmartimages.com/3bf38d8904aad0abb5eff366f7efa4e8ec6fef2f.jpeg" alt="Barefoot Full Selection">
-                    
-                    <div class="order-overlay">
-                        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats" onclick="event.stopPropagation()">UberEats</a>
-                        <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash" onclick="event.stopPropagation()">DoorDash</a>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Barefoot Full Selection</h3>
-                    <p class="desc">6 Varieties Available</p>
-                    <p class="price">From $6.99</p>
-                </div>
-            </div>
-<div class="product-card" onclick="window.location.href='product.html?id=premium-wine'">
-                <div class="product-image-wrap">
-                    <img src="https://kimi-web-img.moonshot.cn/img/shop.benjerry.com/acfff429d6cb94bc4d6fd5616d941de0ec506914.png" alt="Premium Wine Selection">
-                    <span class="product-badge ">Bundle</span>
-                    <div class="order-overlay">
-                        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats" onclick="event.stopPropagation()">UberEats</a>
-                        <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash" onclick="event.stopPropagation()">DoorDash</a>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Premium Wine Selection</h3>
-                    <p class="desc">Red, White, Rosé & Sparkling</p>
-                    <p class="price">From $12.99</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="banner-section banner-dark">
-        <div class="banner-bg"></div>
-        <div class="banner-content">
-            <h2>Craft Beer<br>&amp; <em>Imports</em></h2>
-            <p>Local craft brews, Mexican imports, and domestic favorites &mdash; always cold.</p>
-            <a href="#beer" class="banner-cta">Shop Beer</a>
-        </div>
-    </section>
-    <div class="section-header" id="beer">
-        <h2>Beer &amp; <em>Cider</em></h2>
-        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank">View All</a>
-    </div>
-    <section class="products-section">
-        <div class="product-grid">
-            <div class="product-card" onclick="window.location.href='product.html?id=corona-12pk'">
-                <div class="product-image-wrap">
-                    <img src="https://kimi-web-img.moonshot.cn/img/icdn.bottlenose.wine/0a672d7e61b453dea1a5d335ac63518b88ac3b79.jpg" alt="Corona Extra 12-Pack">
-                    <span class="product-badge ">Cold</span>
-                    <div class="order-overlay">
-                        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats" onclick="event.stopPropagation()">UberEats</a>
-                        <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash" onclick="event.stopPropagation()">DoorDash</a>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Corona Extra 12-Pack</h3>
-                    <p class="desc">Mexican Lager, 12oz Bottles</p>
-                    <p class="price">$16.99</p>
-                </div>
-            </div>
-<div class="product-card" onclick="window.location.href='product.html?id=corona-12pk-2'">
-                <div class="product-image-wrap">
-                    <img src="https://kimi-web-img.moonshot.cn/img/shopsk.com/c5dfba961a37a9bfdeb9b9fd417f4b7f087df81f.jpg" alt="Corona Extra 12pk">
-                    <span class="product-badge gold">Best Seller</span>
-                    <div class="order-overlay">
-                        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats" onclick="event.stopPropagation()">UberEats</a>
-                        <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash" onclick="event.stopPropagation()">DoorDash</a>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Corona Extra 12pk</h3>
-                    <p class="desc">The Original Cerveza Mas Fina</p>
-                    <p class="price">$16.99</p>
-                </div>
-            </div>
-<div class="product-card" onclick="window.location.href='product.html?id=modelo'">
-                <div class="product-image-wrap">
-                    <img src="https://kimi-web-img.moonshot.cn/img/cdn11.bigcommerce.com/5b42513cc4301e6fd86f1b900dde65e17f0f7a98.jpg" alt="Modelo Especial 12pk">
-                    
-                    <div class="order-overlay">
-                        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats" onclick="event.stopPropagation()">UberEats</a>
-                        <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash" onclick="event.stopPropagation()">DoorDash</a>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Modelo Especial 12pk</h3>
-                    <p class="desc">Mexican Pilsner, 12oz Bottles</p>
-                    <p class="price">$17.99</p>
-                </div>
-            </div>
-<div class="product-card" onclick="window.location.href='product.html?id=craft-beer'">
-                <div class="product-image-wrap">
-                    <img src="https://kimi-web-img.moonshot.cn/img/titos-next.transforms.svdcdn.com/e46c9fd776e2b12b07298858332919ec22f12bce.jpeg" alt="Craft Beer Selection">
-                    <span class="product-badge ">Local</span>
-                    <div class="order-overlay">
-                        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats" onclick="event.stopPropagation()">UberEats</a>
-                        <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash" onclick="event.stopPropagation()">DoorDash</a>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Craft Beer Selection</h3>
-                    <p class="desc">Local California Brews & IPAs</p>
-                    <p class="price">From $11.99</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-header" id="lottery">
-        <h2>Lottery &amp; <em>Games</em></h2>
-        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank">View All</a>
-    </div>
-    <section class="products-section">
-        <div class="product-grid">
-            <div class="product-card" onclick="window.location.href='product.html?id=powerball'">
-                <div class="product-image-wrap">
-                    <img src="https://kimi-web-img.moonshot.cn/img/imageio.forbes.com/1d3d23ae2d1183a45a56f94cafaf53c0e63296b9.jpg" alt="Powerball">
-                    
-                    <div class="order-overlay">
-                        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats" onclick="event.stopPropagation()">UberEats</a>
-                        <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash" onclick="event.stopPropagation()">DoorDash</a>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Powerball</h3>
-                    <p class="desc">Massive Jackpots, Twice Weekly</p>
-                    <p class="price">$2.00 per play</p>
-                </div>
-            </div>
-<div class="product-card" onclick="window.location.href='product.html?id=mega-millions'">
-                <div class="product-image-wrap">
-                    <img src="https://kimi-web-img.moonshot.cn/img/usa.inquirer.net/fc091ae4e773f5e8ebeb3080da81ea358417aabe.png" alt="Mega Millions">
-                    
-                    <div class="order-overlay">
-                        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats" onclick="event.stopPropagation()">UberEats</a>
-                        <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash" onclick="event.stopPropagation()">DoorDash</a>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Mega Millions</h3>
-                    <p class="desc">Life-Changing Prizes</p>
-                    <p class="price">$2.00 per play</p>
-                </div>
-            </div>
-<div class="product-card" onclick="window.location.href='product.html?id=scratchers'">
-                <div class="product-image-wrap">
-                    <img src="https://kimi-web-img.moonshot.cn/img/lottery-admin.sd.gov/7c35644b1ba7e10d2d7e60cc8bc5ae6fd111f391.png" alt="Scratchers">
-                    <span class="product-badge gold">Instant Win</span>
-                    <div class="order-overlay">
-                        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats" onclick="event.stopPropagation()">UberEats</a>
-                        <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash" onclick="event.stopPropagation()">DoorDash</a>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Scratchers</h3>
-                    <p class="desc">$1 to $30 Tickets, Instant Prizes</p>
-                    <p class="price">From $1.00</p>
-                </div>
-            </div>
-<div class="product-card" onclick="window.location.href='product.html?id=daily-games'">
-                <div class="product-image-wrap">
-                    <img src="https://kimi-web-img.moonshot.cn/img/nclottery.com/3f5d8e3b7236edf5f2f49708da548c6555338e15.png" alt="Daily Games">
-                    
-                    <div class="order-overlay">
-                        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats" onclick="event.stopPropagation()">UberEats</a>
-                        <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash" onclick="event.stopPropagation()">DoorDash</a>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Daily Games</h3>
-                    <p class="desc">Daily 3, Daily 4, Fantasy 5</p>
-                    <p class="price">From $1.00</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="banner-section banner-light">
-        <div class="banner-bg"></div>
-        <div class="banner-content">
-            <h2>Ice Cream, Ice<br>&amp; <em>Mixers</em></h2>
-            <p>Everything you need for the perfect night.</p>
-            <a href="#convenience" class="banner-cta">Shop Essentials</a>
-        </div>
-    </section>
-    <div class="section-header" id="convenience">
-        <h2>Convenience &amp; <em>Snacks</em></h2>
-        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank">View All</a>
-    </div>
-    <section class="products-section">
-        <div class="product-grid">
-            <div class="product-card" onclick="window.location.href='product.html?id=ben-jerrys-half-baked'">
-                <div class="product-image-wrap">
-                    <img src="https://kimi-web-img.moonshot.cn/img/images.albertsons-media.com/d833b1f762b362ea83fe2cd3f023904db3756fad" alt="Ben & Jerry's Half Baked">
-                    <span class="product-badge ">Frozen</span>
-                    <div class="order-overlay">
-                        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats" onclick="event.stopPropagation()">UberEats</a>
-                        <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash" onclick="event.stopPropagation()">DoorDash</a>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Ben & Jerry's Half Baked</h3>
-                    <p class="desc">Chocolate & Vanilla, 16oz</p>
-                    <p class="price">$5.99</p>
-                </div>
-            </div>
-<div class="product-card" onclick="window.location.href='product.html?id=ben-jerrys-pints'">
-                <div class="product-image-wrap">
-                    <img src="https://kimi-web-img.moonshot.cn/img/www.benjerry.com/1ee7e4c39a90727a552dcfc0b9f69661c8da4dd9.png" alt="Ben & Jerry's Pints">
-                    <span class="product-badge gold">Variety</span>
-                    <div class="order-overlay">
-                        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats" onclick="event.stopPropagation()">UberEats</a>
-                        <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash" onclick="event.stopPropagation()">DoorDash</a>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Ben & Jerry's Pints</h3>
-                    <p class="desc">Multiple Flavors Available</p>
-                    <p class="price">$5.99</p>
-                </div>
-            </div>
-<div class="product-card" onclick="window.location.href='product.html?id=reddy-ice'">
-                <div class="product-image-wrap">
-                    <img src="https://kimi-web-img.moonshot.cn/img/www.kroger.com/af0799edb1d93bb5f5fe4d697a1c0df4d5ec07fa" alt="Reddy Ice 7lb Bag">
-                    <span class="product-badge ">Cold</span>
-                    <div class="order-overlay">
-                        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats" onclick="event.stopPropagation()">UberEats</a>
-                        <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash" onclick="event.stopPropagation()">DoorDash</a>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Reddy Ice 7lb Bag</h3>
-                    <p class="desc">Premium Cubed Ice</p>
-                    <p class="price">$2.99</p>
-                </div>
-            </div>
-<div class="product-card" onclick="window.location.href='product.html?id=bagged-ice'">
-                <div class="product-image-wrap">
-                    <img src="https://kimi-web-img.moonshot.cn/img/www.bayviewliquors.com/1111e827c219917068f585fa86d9d0d84d2aa48c.webp" alt="Bagged Ice 7lb">
-                    
-                    <div class="order-overlay">
-                        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats" onclick="event.stopPropagation()">UberEats</a>
-                        <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash" onclick="event.stopPropagation()">DoorDash</a>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Bagged Ice 7lb</h3>
-                    <p class="desc">Crystal Clear Cubed Ice</p>
-                    <p class="price">$2.99</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-header" id="tobacco">
-        <h2>Tobacco &amp; <em>Vapes</em></h2>
-        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank">View All</a>
-    </div>
-    <section class="products-section">
-        <div class="product-grid">
-            <div class="product-card" onclick="window.location.href='product.html?id=marlboro-red'">
-                <div class="product-image-wrap">
-                    <img src="https://kimi-web-img.moonshot.cn/img/p.turbosquid.com/12e3209e1f18d04cf35f6a4bac1a0b46abe36c2e.jpg" alt="Marlboro Red">
-                    <span class="product-badge ">21+</span>
-                    <div class="order-overlay">
-                        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats" onclick="event.stopPropagation()">UberEats</a>
-                        <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash" onclick="event.stopPropagation()">DoorDash</a>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Marlboro Red</h3>
-                    <p class="desc">King Size, 20 Count Pack</p>
-                    <p class="price">$8.99</p>
-                </div>
-            </div>
-<div class="product-card" onclick="window.location.href='product.html?id=marlboro-smooth'">
-                <div class="product-image-wrap">
-                    <img src="https://kimi-web-img.moonshot.cn/img/i5.samsclubimages.com/877f9e6408362e3fb5ee907bf931604636e9b51b.jpeg" alt="Marlboro Smooth Menthol">
-                    <span class="product-badge ">21+</span>
-                    <div class="order-overlay">
-                        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats" onclick="event.stopPropagation()">UberEats</a>
-                        <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash" onclick="event.stopPropagation()">DoorDash</a>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Marlboro Smooth Menthol</h3>
-                    <p class="desc">100s Box, 20 Count</p>
-                    <p class="price">$9.49</p>
-                </div>
-            </div>
-<div class="product-card" onclick="window.location.href='product.html?id=elf-bar-600'">
-                <div class="product-image-wrap">
-                    <img src="https://kimi-web-img.moonshot.cn/img/hempelf.com/309f975b34c1344fcaf621e30099ee1bfee1a17e.jpg" alt="Elf Bar 600">
-                    <span class="product-badge gold">21+</span>
-                    <div class="order-overlay">
-                        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats" onclick="event.stopPropagation()">UberEats</a>
-                        <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash" onclick="event.stopPropagation()">DoorDash</a>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Elf Bar 600</h3>
-                    <p class="desc">Disposable Vape, All Flavors</p>
-                    <p class="price">$14.99</p>
-                </div>
-            </div>
-<div class="product-card" onclick="window.location.href='product.html?id=elf-bar-fs7000'">
-                <div class="product-image-wrap">
-                    <img src="https://kimi-web-img.moonshot.cn/img/uvapeshop.com/04110a72d62329d53bf6b8f4cf2a6b63ec8f0842.jpg" alt="Elf Bar FS7000">
-                    <span class="product-badge ">21+</span>
-                    <div class="order-overlay">
-                        <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats" onclick="event.stopPropagation()">UberEats</a>
-                        <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash" onclick="event.stopPropagation()">DoorDash</a>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Elf Bar FS7000</h3>
-                    <p class="desc">7000 Puffs, Rechargeable</p>
-                    <p class="price">$17.99</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="info-strip">
+    html+=`<section class="info-strip">
         <div class="info-strip-inner">
-            <div class="info-item">
-                <h4>Fast Delivery</h4>
-                <p>Order through UberEats, DoorDash &amp; more. Delivered to your door in Covina within minutes.</p>
-            </div>
-            <div class="info-item">
-                <h4>Open Late Daily</h4>
-                <p>Open until midnight (1AM on weekends). Never miss a celebration or last-minute need.</p>
-            </div>
-            <div class="info-item">
-                <h4>Best Prices</h4>
-                <p>Weekly specials and competitive pricing on all your favorite brands. Save more every visit.</p>
-            </div>
-            <div class="info-item">
-                <h4>Premium Selection</h4>
-                <p>From local craft beers to premium tequilas and fine wines &mdash; something for every taste.</p>
-            </div>
+            <div class="info-item"><h4>Fast Delivery</h4><p>Order through UberEats, DoorDash &amp; more. Delivered to your door in Covina within minutes.</p></div>
+            <div class="info-item"><h4>Open Late Daily</h4><p>Open until midnight (1AM on weekends). Never miss a celebration or last-minute need.</p></div>
+            <div class="info-item"><h4>Best Prices</h4><p>Weekly specials and competitive pricing on all your favorite brands. Save more every visit.</p></div>
+            <div class="info-item"><h4>Premium Selection</h4><p>From local craft beers to premium tequilas and fine wines &mdash; something for every taste.</p></div>
         </div>
-    </section>
-
-    <footer class="site-footer">
-        <div class="footer-inner">
-            <div class="footer-brand">
-                <div class="logo-footer">RAVI'S <em style="font-weight:400;">Liquor</em></div>
-                <p>904 E Arrow Highway<br>Covina, CA 91724</p>
-                <p>(626) 699-2212</p>
-                <p style="margin-top: 16px; color: var(--gold);">Mon-Thu: 8AM-12AM<br>Fri-Sat: 8AM-1AM<br>Sun: 8AM-12AM</p>
-            </div>
-            <div class="footer-col">
-                <h5>Shop</h5>
-                <ul>
-                    <li><a href="#spirits">Spirits</a></li>
-                    <li><a href="#wine">Wine</a></li>
-                    <li><a href="#beer">Beer</a></li>
-                    <li><a href="#lottery">Lottery</a></li>
-                    <li><a href="#convenience">Convenience</a></li>
-                    <li><a href="#tobacco">Tobacco</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h5>Order Online</h5>
-                <ul>
-                    <li><a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank">UberEats</a></li>
-                    <li><a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank">DoorDash</a></li>
-                    <li><a href="tel:+16266992212">Call to Order</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Ravi's Liquor II. All rights reserved.</p>
-            <p class="warning">&#128286; Must be 21+ with valid ID to purchase alcohol and tobacco products.</p>
-            <p>We reserve the right to refuse service. Play responsibly.</p>
-        </div>
-    </footer>
-
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-        });
-        const sections = document.querySelectorAll('[id]');
-        const navLinks = document.querySelectorAll('.main-nav a');
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                if (scrollY >= section.offsetTop - 200) current = section.getAttribute('id');
-            });
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) link.classList.add('active');
-            });
-        });
-    </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product | RAVI'S LIQUOR II</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <style>
-        
-* { margin: 0; padding: 0; box-sizing: border-box; }
-:root {
-    --black: #000000;
-    --white: #ffffff;
-    --cream: #faf9f7;
-    --warm-gray: #f5f3f0;
-    --text: #1a1a1a;
-    --text-light: #666666;
-    --text-muted: #999999;
-    --border: #e5e5e5;
-    --gold: #c9a96e;
-    --gold-dark: #a88b52;
-}
-html { scroll-behavior: smooth; }
-body {
-    font-family: 'Inter', sans-serif;
-    background: var(--white);
-    color: var(--text);
-    -webkit-font-smoothing: antialiased;
-}
-.top-bar {
-    background: var(--black);
-    color: var(--white);
-    text-align: center;
-    padding: 8px 20px;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-}
-.main-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
-}
-.header-inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 70px;
-}
-.logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 26px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    color: var(--black);
-    text-decoration: none;
-}
-.logo span {
-    font-weight: 400;
-    font-style: italic;
-    letter-spacing: 1px;
-}
-.main-nav {
-    display: flex;
-    gap: 36px;
-    list-style: none;
-}
-.main-nav a {
-    text-decoration: none;
-    color: var(--text);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    padding: 24px 0;
-    position: relative;
-    transition: color 0.2s;
-    cursor: pointer;
-}
-.main-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: 18px;
-    left: 0;
-    width: 0;
-    height: 1.5px;
-    background: var(--black);
-    transition: width 0.3s ease;
-}
-.main-nav a:hover::after,
-.main-nav a.active::after {
-    width: 100%;
-}
-.main-nav a:hover,
-.main-nav a.active {
-    color: var(--black);
-}
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-}
-.header-actions a {
-    text-decoration: none;
-    color: var(--text);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    transition: color 0.2s;
-}
-.header-actions a:hover {
-    color: var(--gold-dark);
-}
-.hero {
-    position: relative;
-    height: 85vh;
-    min-height: 600px;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0d0d0d 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-.hero-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:
-        radial-gradient(ellipse at 20% 50%, rgba(201,169,110,0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 30%, rgba(201,169,110,0.05) 0%, transparent 40%);
-}
-.hero-shelf {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(201,169,110,0.15), transparent);
-}
-.hero-shelf-1 { top: 25%; }
-.hero-shelf-2 { top: 50%; }
-.hero-shelf-3 { top: 75%; }
-.hero-bottle {
-    position: absolute;
-    font-size: 28px;
-    opacity: 0.06;
-    filter: grayscale(100%);
-}
-.hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    max-width: 800px;
-    padding: 0 40px;
-}
-.hero-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 24px;
-}
-.hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 72px;
-    font-weight: 400;
-    color: var(--white);
-    line-height: 1.1;
-    margin-bottom: 20px;
-}
-.hero h1 em {
-    font-style: italic;
-    color: var(--gold);
-}
-.hero-subtitle {
-    font-size: 16px;
-    font-weight: 300;
-    color: rgba(255,255,255,0.6);
-    letter-spacing: 2px;
-    margin-bottom: 40px;
-}
-.hero-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: var(--white);
-    color: var(--black);
-    padding: 16px 40px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.hero-cta:hover {
-    background: var(--gold);
-    color: var(--white);
-}
-.hero-cta svg {
-    width: 16px;
-    height: 16px;
-    transition: transform 0.3s;
-}
-.hero-cta:hover svg {
-    transform: translateX(4px);
-}
-.hero-info {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 48px;
-    color: rgba(255,255,255,0.4);
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-}
-.section-header {
-    padding: 80px 40px 40px;
-    max-width: 1400px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-.section-header h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    font-weight: 400;
-    color: var(--text);
-}
-.section-header h2 em {
-    font-style: italic;
-    color: var(--gold-dark);
-}
-.section-header a {
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--text);
-    text-decoration: none;
-    border-bottom: 1px solid var(--text);
-    padding-bottom: 2px;
-    transition: all 0.2s;
-}
-.section-header a:hover {
-    color: var(--gold-dark);
-    border-color: var(--gold-dark);
-}
-.products-section {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 40px 80px;
-}
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-}
-.product-card {
-    cursor: pointer;
-    transition: opacity 0.3s;
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-.product-card:hover {
-    opacity: 0.85;
-}
-.product-image-wrap {
-    position: relative;
-    aspect-ratio: 3/4;
-    background: var(--warm-gray);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.product-image-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-}
-.product-card:hover .product-image-wrap img {
-    transform: scale(1.03);
-}
-.product-badge {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background: var(--black);
-    color: var(--white);
-    padding: 6px 12px;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-.product-badge.gold {
-    background: var(--gold);
-    color: var(--white);
-}
-.product-info {
-    padding: 16px 4px 8px;
-}
-.product-info h3 {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text);
-    margin-bottom: 4px;
-    line-height: 1.4;
-}
-.product-info .desc {
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-bottom: 8px;
-    line-height: 1.4;
-}
-.product-info .price {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text);
-}
-.product-info .price .from {
-    font-weight: 400;
-    color: var(--text-muted);
-}
-.order-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.7));
-    opacity: 0;
-    transition: opacity 0.3s;
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-}
-.product-card:hover .order-overlay {
-    opacity: 1;
-}
-.order-btn {
-    background: var(--white);
-    color: var(--black);
-    border: none;
-    padding: 10px 16px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: all 0.2s;
-    font-family: 'Inter', sans-serif;
-}
-.order-btn:hover {
-    background: var(--gold);
-    color: var(--white);
-}
-.order-btn.ubereats {
-    background: #06C167;
-    color: white;
-}
-.order-btn.ubereats:hover {
-    background: #05a857;
-}
-.order-btn.doordash {
-    background: #FF3008;
-    color: white;
-}
-.order-btn.doordash:hover {
-    background: #e62b07;
-}
-.banner-section {
-    position: relative;
-    height: 70vh;
-    min-height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    margin: 40px 0;
-}
-.banner-dark {
-    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
-}
-.banner-light {
-    background: linear-gradient(135deg, #f5f3f0 0%, #faf9f7 100%);
-}
-.banner-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-.banner-dark .banner-bg {
-    background: radial-gradient(ellipse at 30% 50%, rgba(201,169,110,0.06) 0%, transparent 50%);
-}
-.banner-light .banner-bg {
-    background: radial-gradient(ellipse at 50% 50%, rgba(201,169,110,0.06) 0%, transparent 60%);
-}
-.banner-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    max-width: 600px;
-    padding: 0 40px;
-}
-.banner-content h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 52px;
-    font-weight: 400;
-    line-height: 1.1;
-    margin-bottom: 16px;
-}
-.banner-dark .banner-content h2 {
-    color: var(--white);
-}
-.banner-light .banner-content h2 {
-    color: var(--text);
-}
-.banner-content h2 em {
-    font-style: italic;
-    color: var(--gold);
-}
-.banner-content p {
-    font-size: 15px;
-    font-weight: 300;
-    letter-spacing: 1px;
-    margin-bottom: 32px;
-}
-.banner-dark .banner-content p {
-    color: rgba(255,255,255,0.5);
-}
-.banner-light .banner-content p {
-    color: var(--text-light);
-}
-.banner-cta {
-    display: inline-block;
-    padding: 14px 36px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: all 0.3s;
-}
-.banner-dark .banner-cta {
-    border: 1px solid rgba(255,255,255,0.3);
-    color: var(--white);
-}
-.banner-dark .banner-cta:hover {
-    background: var(--white);
-    color: var(--black);
-    border-color: var(--white);
-}
-.banner-light .banner-cta {
-    border: 1px solid var(--text);
-    color: var(--text);
-}
-.banner-light .banner-cta:hover {
-    background: var(--text);
-    color: var(--white);
-}
-.info-strip {
-    background: var(--cream);
-    padding: 60px 40px;
-}
-.info-strip-inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-    text-align: center;
-}
-.info-item h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-    color: var(--text);
-}
-.info-item p {
-    font-size: 13px;
-    color: var(--text-light);
-    line-height: 1.5;
-}
-.site-footer {
-    background: var(--black);
-    color: var(--white);
-    padding: 80px 40px 40px;
-}
-.footer-inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 60px;
-    margin-bottom: 60px;
-}
-.footer-brand .logo-footer {
-    font-family: 'Playfair Display', serif;
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    margin-bottom: 16px;
-}
-.footer-brand p {
-    font-size: 13px;
-    color: rgba(255,255,255,0.5);
-    line-height: 1.6;
-    margin-bottom: 8px;
-}
-.footer-col h5 {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    color: var(--white);
-}
-.footer-col ul {
-    list-style: none;
-}
-.footer-col li {
-    margin-bottom: 12px;
-}
-.footer-col a {
-    color: rgba(255,255,255,0.5);
-    text-decoration: none;
-    font-size: 13px;
-    transition: color 0.2s;
-}
-.footer-col a:hover {
-    color: var(--gold);
-}
-.footer-bottom {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding-top: 30px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 16px;
-}
-.footer-bottom p {
-    font-size: 11px;
-    color: rgba(255,255,255,0.3);
-    letter-spacing: 0.5px;
-}
-.footer-bottom .warning {
-    color: rgba(255,100,100,0.6);
-    font-weight: 500;
+    </section>`;
+    app.innerHTML=html;
+    window.scrollTo(0,0);
 }
 
-/* PRODUCT DETAIL PAGE */
-.product-detail {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 60px 40px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-}
-.product-detail-image {
-    background: var(--warm-gray);
-    aspect-ratio: 3/4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-.product-detail-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.product-detail-info h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    font-weight: 400;
-    margin-bottom: 8px;
-}
-.product-detail-info .subtitle {
-    font-size: 16px;
-    color: var(--text-muted);
-    margin-bottom: 24px;
-}
-.product-detail-info .price-large {
-    font-size: 32px;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 8px;
-}
-.specs {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    margin-bottom: 32px;
-    padding: 20px;
-    background: var(--cream);
-    border-radius: 8px;
-}
-.spec {
-    display: flex;
-    flex-direction: column;
-}
-.spec-label {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--text-muted);
-    margin-bottom: 4px;
-}
-.spec-value {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text);
-}
-.description {
-    font-size: 15px;
-    line-height: 1.7;
-    color: var(--text-light);
-    margin-bottom: 32px;
-}
-.tasting-notes {
-    background: var(--cream);
-    padding: 24px;
-    border-radius: 8px;
-    margin-bottom: 32px;
-}
-.tasting-notes h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-    margin-bottom: 12px;
-    color: var(--text);
-}
-.tasting-notes p {
-    font-size: 14px;
-    line-height: 1.6;
-    color: var(--text-light);
-}
-.order-section {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 24px;
-}
-.order-section .order-btn {
-    padding: 16px 32px;
-    font-size: 13px;
-}
-.back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 13px;
-    margin-bottom: 24px;
-    transition: color 0.2s;
-}
-.back-link:hover {
-    color: var(--text);
-}
-.breadcrumb {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 40px;
-    font-size: 12px;
-    color: var(--text-muted);
-}
-.breadcrumb a {
-    color: var(--text-muted);
-    text-decoration: none;
-    transition: color 0.2s;
-}
-.breadcrumb a:hover {
-    color: var(--text);
-}
-.related-section {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 40px 80px;
-}
-.related-section h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 24px;
-    margin-bottom: 24px;
+function showCategory(cat,sub){
+    currentCat=cat;
+    currentSub=sub||'all';
+    setActiveNav(cat);
+    const catData=CAT[cat];
+    const app=document.getElementById('app');
+    let products=Object.entries(P).filter(([k,v])=>v.c===cat);
+    if(currentSub!=='all')products=products.filter(([k,v])=>v.s===currentSub);
+
+    let html=`<div class="section-header"><h2>${catData.n}${currentSub!=='all'?' &mdash; '+SUBN[currentSub]:''}</h2><span style="color:var(--muted);font-size:14px">${products.length} products</span></div>`;
+
+    html+=`<div class="sub-filter">`;
+    html+=`<button class="${currentSub==='all'?'active':''}" onclick="showCategory('${cat}','all')">All</button>`;
+    for(const s of catData.subs){
+        const count=Object.values(P).filter(v=>v.c===cat&&v.s===s).length;
+        if(count>0)html+=`<button class="${currentSub===s?'active':''}" onclick="showCategory('${cat}','${s}')">${SUBN[s]} (${count})</button>`;
+    }
+    html+=`</div>`;
+
+    html+=`<section class="products-section"><div class="product-grid">`;
+    html+=products.map(([k,v])=>renderProductCard(k,v)).join('');
+    html+=`</div></section>`;
+    app.innerHTML=html;
+    window.scrollTo(0,0);
 }
 
-@media (max-width: 1024px) {
-    .product-grid { grid-template-columns: repeat(3, 1fr); }
-    .hero h1 { font-size: 52px; }
-    .banner-content h2 { font-size: 40px; }
-    .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
-    .info-strip-inner { grid-template-columns: repeat(2, 1fr); gap: 30px; }
-}
-@media (max-width: 768px) {
-    .header-inner { padding: 0 20px; height: 60px; }
-    .main-nav { display: none; }
-    .logo { font-size: 20px; }
-    .hero { height: 70vh; min-height: 450px; }
-    .hero h1 { font-size: 36px; }
-    .hero-info { gap: 24px; font-size: 9px; }
-    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    .products-section { padding: 0 20px 60px; }
-    .section-header { padding: 60px 20px 30px; }
-    .section-header h2 { font-size: 28px; }
-    .footer-inner { grid-template-columns: 1fr; gap: 40px; }
-    .banner-content h2 { font-size: 32px; }
-    .order-overlay { opacity: 1; padding: 12px; }
-    .order-btn { padding: 8px 12px; font-size: 10px; }
-    .product-detail { grid-template-columns: 1fr; gap: 30px; padding: 30px 20px; }
-    .product-detail-info h1 { font-size: 28px; }
-    .order-section { flex-direction: column; }
-}
-@media (max-width: 480px) {
-    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    .hero h1 { font-size: 28px; }
-    .hero-info { display: none; }
-}
-
-    </style>
-</head>
-<body>
-    <div class="top-bar">Free delivery in Covina on orders over $50 &bull; Open Late Daily</div>
-    <header class="main-header">
-        <div class="header-inner">
-            <a href="index.html" class="logo">RAVI'S <span>Liquor</span></a>
-            <nav>
-                <ul class="main-nav">
-                    <li><a href="index.html#spirits">Spirits</a></li>
-                    <li><a href="index.html#wine">Wine</a></li>
-                    <li><a href="index.html#beer">Beer</a></li>
-                    <li><a href="index.html#lottery">Lottery</a></li>
-                    <li><a href="index.html#convenience">Convenience</a></li>
-                    <li><a href="index.html#tobacco">Tobacco</a></li>
-                </ul>
-            </nav>
-            <div class="header-actions">
-                <a href="tel:+16266992212">(626) 699-2212</a>
-                <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank">Order</a>
-            </div>
-        </div>
-    </header>
-
-    <div class="breadcrumb" id="breadcrumb">
-        <a href="index.html">Home</a> &gt; <span id="bc-category">Category</span> &gt; <span id="bc-product">Product</span>
+function showProduct(id){
+    const p=P[id];
+    if(!p)return;
+    const app=document.getElementById('app');
+    const catName=CAT[p.c].n;
+    const related=Object.entries(P).filter(([k,v])=>k!==id&&v.c===p.c).slice(0,4);
+    let html=`<div class="breadcrumb">
+        <a onclick="showHome()">Home</a> &gt; 
+        <a onclick="showCategory('${p.c}')">${catName}</a> &gt; 
+        <span>${p.n}</span>
     </div>
-
-    <div class="product-detail" id="productDetail">
-        <div class="product-detail-image">
-            <img id="pImage" src="" alt="">
-        </div>
+    <div class="product-detail">
+        <div class="product-detail-image"><img src="${p.i}" alt="${p.n}"></div>
         <div class="product-detail-info">
-            <h1 id="pName">Product Name</h1>
-            <p class="subtitle" id="pSubtitle">Description</p>
-            <p class="price-large" id="pPrice">$0.00</p>
+            <h1>${p.n}</h1>
+            <p class="subtitle">${p.sz} &bull; ${p.o}</p>
+            <p class="price-large">${formatPrice(p.p)}</p>
             <div class="specs">
-                <div class="spec"><span class="spec-label">ABV</span><span class="spec-value" id="pAbv">--</span></div>
-                <div class="spec"><span class="spec-label">Size</span><span class="spec-value" id="pSize">--</span></div>
-                <div class="spec"><span class="spec-label">Calories</span><span class="spec-value" id="pCalories">--</span></div>
-                <div class="spec"><span class="spec-label">Origin</span><span class="spec-value" id="pOrigin">--</span></div>
+                <div class="spec"><span class="spec-label">ABV</span><span class="spec-value">${p.a}</span></div>
+                <div class="spec"><span class="spec-label">Size</span><span class="spec-value">${p.sz}</span></div>
+                <div class="spec"><span class="spec-label">Calories</span><span class="spec-value">${p.cal}</span></div>
+                <div class="spec"><span class="spec-label">Origin</span><span class="spec-value">${p.o}</span></div>
             </div>
-            <p class="description" id="pDescription">Loading...</p>
-            <div class="tasting-notes">
-                <h4>Tasting Notes</h4>
-                <p id="pTasting">Loading...</p>
-            </div>
+            <p class="description">${p.d}</p>
+            <div class="tasting-notes"><h4>Tasting Notes</h4><p>${p.t}</p></div>
             <div class="order-section">
+                <button class="order-btn" style="background:var(--black);color:var(--white)" onclick="addToCart('${id}')">Add to Cart</button>
                 <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats">Order on UberEats</a>
                 <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash">Order on DoorDash</a>
             </div>
-            <a href="index.html" class="back-link">
+            <a href="#" class="back-link" onclick="showCategory('${p.c}');return false">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-                Back to all products
+                Back to ${catName}
             </a>
         </div>
-    </div>
+    </div>`;
+    if(related.length>0){
+        html+=`<div class="related-section"><h3>You May Also Like</h3><div class="product-grid">${related.map(([k,v])=>renderProductCard(k,v)).join('')}</div></div>`;
+    }
+    app.innerHTML=html;
+    window.scrollTo(0,0);
+}
 
-    <div class="related-section" id="relatedSection" style="display:none;">
-        <h3>You May Also Like</h3>
-        <div class="product-grid" id="relatedGrid"></div>
-    </div>
-
-    <footer class="site-footer" style="margin-top: 60px;">
-        <div class="footer-inner">
-            <div class="footer-brand">
-                <div class="logo-footer">RAVI'S <em style="font-weight:400;">Liquor</em></div>
-                <p>904 E Arrow Highway<br>Covina, CA 91724</p>
-                <p>(626) 699-2212</p>
-                <p style="margin-top: 16px; color: var(--gold);">Mon-Thu: 8AM-12AM<br>Fri-Sat: 8AM-1AM<br>Sun: 8AM-12AM</p>
-            </div>
-            <div class="footer-col">
-                <h5>Shop</h5>
-                <ul>
-                    <li><a href="index.html#spirits">Spirits</a></li>
-                    <li><a href="index.html#wine">Wine</a></li>
-                    <li><a href="index.html#beer">Beer</a></li>
-                    <li><a href="index.html#lottery">Lottery</a></li>
-                    <li><a href="index.html#convenience">Convenience</a></li>
-                    <li><a href="index.html#tobacco">Tobacco</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h5>Order Online</h5>
-                <ul>
-                    <li><a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank">UberEats</a></li>
-                    <li><a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank">DoorDash</a></li>
-                    <li><a href="tel:+16266992212">Call to Order</a></li>
-                </ul>
-            </div>
+function showCheckout(){
+    toggleCart(false);
+    const app=document.getElementById('app');
+    const total=getCartTotal();
+    const count=getCartCount();
+    app.innerHTML=`<div class="checkout-page">
+        <h1>Checkout</h1>
+        <p>You have <strong>${count} item${count!==1?'s':''}</strong> in your cart with a total of <strong>${formatPrice(total)}</strong>.<br>Complete your order through our delivery partners.</p>
+        <div class="checkout-options">
+            <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="checkout-option">
+                <h3>UberEats</h3>
+                <p>Fast delivery from Ravi's Liquor II</p>
+            </a>
+            <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="checkout-option">
+                <h3>DoorDash</h3>
+                <p>Quick delivery to your door</p>
+            </a>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Ravi's Liquor II. All rights reserved.</p>
-            <p class="warning">&#128286; Must be 21+ with valid ID to purchase alcohol and tobacco products.</p>
-            <p>We reserve the right to refuse service. Play responsibly.</p>
-        </div>
-    </footer>
+        <p style="margin-top:40px;font-size:13px;color:var(--muted)">Your cart items are for reference. Please find matching products on UberEats or DoorDash to complete your order.</p>
+        <a href="#" onclick="showHome();return false" style="display:inline-block;margin-top:20px;color:var(--text);text-decoration:underline;font-size:13px">Continue Shopping</a>
+    </div>`;
+    window.scrollTo(0,0);
+}
 
-    <script>
-        const PRODUCTS = {
-    "jack-daniels": {
-        name: "Jack Daniel's Old No. 7",
-        short_desc: "Tennessee Whiskey, 750ml",
-        price: "$28.99",
-        image: "https://kimi-web-img.moonshot.cn/img/cdn.mos.cms.futurecdn.net/bd78db52e46ca000dd86edc571a9c397ba7036b8.jpg",
-        abv: "40%",
-        size: "750ml",
-        calories: "65 per 1oz",
-        origin: "Lynchburg, Tennessee",
-        description: "Jack Daniel's Old No. 7 is a premium Tennessee Whiskey charcoal-mellowed before aging in handcrafted barrels. Smooth, rich, and unmistakably bold with notes of vanilla, caramel, and toasted oak. America's favorite whiskey for over 150 years.",
-        tasting: "Sweet vanilla and caramel upfront, followed by toasted oak, light smoke, and a warm, smooth finish with hints of banana and brown sugar."
-    },
-    "jameson": {
-        name: "Jameson Irish Whiskey",
-        short_desc: "Triple Distilled, 750ml",
-        price: "$24.64",
-        image: "https://kimi-web-img.moonshot.cn/img/www.thebottleclub.com/eb382c2624dbc824789b6ebe51a8ba91293630c8.jpg",
-        abv: "40%",
-        size: "750ml",
-        calories: "69 per 1oz",
-        origin: "Dublin, Ireland",
-        description: "Jameson is the world's best-selling Irish whiskey, triple-distilled for exceptional smoothness. Aged in oak casks for a minimum of 4 years, it delivers a perfectly balanced blend of spicy, nutty, and vanilla notes with hints of sweet sherry.",
-        tasting: "Smooth and mellow with toasted wood, vanilla, and a touch of sherry sweetness. Clean, crisp finish with lingering spice."
-    },
-    "patron-silver": {
-        name: "Patrón Silver Tequila",
-        short_desc: "100% Agave, 750ml",
-        price: "$42.99",
-        image: "https://kimi-web-img.moonshot.cn/img/www.patrontequila.com/08959a7909de1cabae862777a9fc3490aa028883.png",
-        abv: "40%",
-        size: "750ml",
-        calories: "69 per 1oz",
-        origin: "Jalisco, Mexico",
-        description: "Patrón Silver is handcrafted from 100% Weber Blue Agave in the Highlands of Jalisco, Mexico. Crystal clear and ultra-smooth with a fresh agave taste and subtle citrus notes. Perfect for sipping or elevating your margarita to the next level.",
-        tasting: "Fresh agave, light citrus, and peppery spice with a smooth, clean finish. No harsh burn, just pure agave elegance."
-    },
-    "titos": {
-        name: "Tito's Handmade Vodka",
-        short_desc: "Gluten-Free, 1.75L",
-        price: "$32.99",
-        image: "https://kimi-web-img.moonshot.cn/img/cdn11.bigcommerce.com/195a6c6cd19a88cf7c34ef2def6ee13366243463.jpg",
-        abv: "40%",
-        size: "1.75L",
-        calories: "64 per 1oz",
-        origin: "Austin, Texas",
-        description: "Tito's Handmade Vodka is America's original craft vodka, distilled from corn in old-fashioned pot stills. Naturally gluten-free and remarkably smooth, it's the perfect base for any cocktail or enjoyed neat over ice.",
-        tasting: "Clean, crisp, and neutral with a subtle sweetness from the corn. Silky smooth texture with no harsh aftertaste."
-    },
-    "new-amsterdam": {
-        name: "New Amsterdam Vodka",
-        short_desc: "5x Distilled, 750ml",
-        price: "$13.99",
-        image: "https://kimi-web-img.moonshot.cn/img/i5.walmartimages.com/f565cce7f3cfb3ac23d4e4e167f478eebf24a9ce.jpeg",
-        abv: "40%",
-        size: "750ml",
-        calories: "64 per 1oz",
-        origin: "California",
-        description: "New Amsterdam Vodka is distilled 5 times and filtered 3 times for a clean, crisp taste. Made from the finest grains, it's exceptionally smooth and perfect for mixing into your favorite cocktails.",
-        tasting: "Soft and smooth with subtle citrus and vanilla notes. Clean finish with no burn."
-    },
-    "bacardi": {
-        name: "Bacardi Superior Rum",
-        short_desc: "White Rum, 750ml",
-        price: "$16.99",
-        image: "https://kimi-web-img.moonshot.cn/img/media.liquormax.com/e44282b8f5cb5c1eecc24ff4822015531d5c0da2.webp",
-        abv: "40%",
-        size: "750ml",
-        calories: "65 per 1oz",
-        origin: "Puerto Rico",
-        description: "Bacardi Superior is the world's most awarded rum, aged for a minimum of 1 year in white oak barrels. Light, dry, and perfectly balanced with subtle vanilla and almond notes. The essential rum for mojitos and daiquiris.",
-        tasting: "Light and crisp with vanilla, almond, and tropical fruit notes. Smooth, dry finish."
-    },
-    "bacardi-collection": {
-        name: "Bacardi Collection",
-        short_desc: "Superior, Coquito, Reserva 8",
-        price: "From $19.99",
-        image: "https://kimi-web-img.moonshot.cn/img/d323g1xugy1rkz.cloudfront.net/fa359633f5eb88b0892429311465dc3bfcb830a9.jpg",
-        abv: "40%",
-        size: "750ml",
-        calories: "65 per 1oz",
-        origin: "Puerto Rico",
-        description: "Explore the Bacardi family of rums. From the classic Superior white rum to the rich, complex Reserva 8 aged rum, and the festive Coquito coconut rum. Something for every rum lover.",
-        tasting: "Varies by expression — from light and crisp to rich and complex with deep oak character."
-    },
-    "titos-bundle": {
-        name: "Tito's & Mixers Bundle",
-        short_desc: "Vodka + Bloody Mary Kit",
-        price: "$38.99",
-        image: "https://kimi-web-img.moonshot.cn/img/titos-next.transforms.svdcdn.com/e46c9fd776e2b12b07298858332919ec22f12bce.jpeg",
-        abv: "40%",
-        size: "Bundle",
-        calories: "Varies",
-        origin: "Austin, Texas",
-        description: "The perfect weekend starter kit. Includes Tito's Handmade Vodka (750ml), premium Bloody Mary mix, pickled vegetables, and hot sauce. Everything you need for the ultimate brunch cocktail.",
-        tasting: "Bold, savory, and spicy with Tito's smooth vodka as the perfect canvas."
-    },
-    "barefoot-collection": {
-        name: "Barefoot Wine Collection",
-        short_desc: "Moscato, Pinot Grigio, Cabernet, Rosé",
-        price: "From $6.99",
-        image: "https://kimi-web-img.moonshot.cn/img/www.barefootwine.com/e6810136e4c23bfc3514923ba39346ef365cd7cd.jpg",
-        abv: "Varies",
-        size: "750ml",
-        calories: "120 per 5oz",
-        origin: "California",
-        description: "Barefoot is California's most loved wine brand, offering something for every palate. From the sweet and fruity Moscato to the bold Cabernet Sauvignon, each bottle is crafted for easy enjoyment.",
-        tasting: "Moscato: Sweet peach and apricot. Pinot Grigio: Crisp citrus and green apple. Cabernet: Rich blackberry and vanilla."
-    },
-    "barefoot-pink": {
-        name: "Barefoot Pink Moscato",
-        short_desc: "Sweet & Fruity, 1.5L",
-        price: "$10.99",
-        image: "https://kimi-web-img.moonshot.cn/img/ik.imagekit.io/fc27a42a585f61330ec043ba78be8167a20bd151.png",
-        abv: "9%",
-        size: "1.5L",
-        calories: "127 per 5oz",
-        origin: "California",
-        description: "Barefoot Pink Moscato is a delightfully sweet wine bursting with flavors of juicy peach, tart raspberry, and orange blossom. Light-bodied with a refreshing finish — perfect for warm days and celebrations.",
-        tasting: "Sweet peach, raspberry, and citrus with a light, effervescent mouthfeel."
-    },
-    "barefoot-selection": {
-        name: "Barefoot Full Selection",
-        short_desc: "6 Varieties Available",
-        price: "From $6.99",
-        image: "https://kimi-web-img.moonshot.cn/img/i5.walmartimages.com/3bf38d8904aad0abb5eff366f7efa4e8ec6fef2f.jpeg",
-        abv: "Varies",
-        size: "750ml",
-        calories: "120 per 5oz",
-        origin: "California",
-        description: "The complete Barefoot lineup. Choose from Moscato, Pink Moscato, Pinot Grigio, Chardonnay, Cabernet Sauvignon, and Merlot. America's favorite wine brand at an unbeatable price.",
-        tasting: "Varies by varietal — from sweet and fruity to dry and bold."
-    },
-    "premium-wine": {
-        name: "Premium Wine Selection",
-        short_desc: "Red, White, Rosé & Sparkling",
-        price: "From $12.99",
-        image: "https://kimi-web-img.moonshot.cn/img/shop.benjerry.com/acfff429d6cb94bc4d6fd5616d941de0ec506914.png",
-        abv: "Varies",
-        size: "750ml",
-        calories: "120 per 5oz",
-        origin: "California, France, Italy",
-        description: "Curated selection of premium wines from California, France, and Italy. From crisp Sauvignon Blanc to bold Cabernet and elegant Prosecco — elevate any occasion.",
-        tasting: "Varies by selection — ask our staff for recommendations based on your taste preferences."
-    },
-    "corona-12pk": {
-        name: "Corona Extra 12-Pack",
-        short_desc: "Mexican Lager, 12oz Bottles",
-        price: "$16.99",
-        image: "https://kimi-web-img.moonshot.cn/img/icdn.bottlenose.wine/0a672d7e61b453dea1a5d335ac63518b88ac3b79.jpg",
-        abv: "4.6%",
-        size: "12-Pack",
-        calories: "148 per 12oz",
-        origin: "Mexico",
-        description: "Corona Extra is Mexico's #1 beer and one of the most recognized brands worldwide. Light, crisp, and refreshing with a smooth malt flavor. Best served ice cold with a wedge of lime.",
-        tasting: "Light malt sweetness, crisp and clean with subtle hop bitterness. Refreshing and easy-drinking."
-    },
-    "corona-12pk-2": {
-        name: "Corona Extra 12pk",
-        short_desc: "The Original Cerveza Mas Fina",
-        price: "$16.99",
-        image: "https://kimi-web-img.moonshot.cn/img/shopsk.com/c5dfba961a37a9bfdeb9b9fd417f4b7f087df81f.jpg",
-        abv: "4.6%",
-        size: "12-Pack",
-        calories: "148 per 12oz",
-        origin: "Mexico",
-        description: "The original Cerveza Más Fina. Corona Extra has been brewed in Mexico since 1925 with the finest quality ingredients. Its iconic clear bottle and refreshing taste make it the perfect beach beer.",
-        tasting: "Crisp, clean, and refreshing with a touch of malt sweetness. Best with lime."
-    },
-    "modelo": {
-        name: "Modelo Especial 12pk",
-        short_desc: "Mexican Pilsner, 12oz Bottles",
-        price: "$17.99",
-        image: "https://kimi-web-img.moonshot.cn/img/cdn11.bigcommerce.com/5b42513cc4301e6fd86f1b900dde65e17f0f7a98.jpg",
-        abv: "4.4%",
-        size: "12-Pack",
-        calories: "145 per 12oz",
-        origin: "Mexico",
-        description: "Modelo Especial is a rich, full-flavored pilsner-style lager with a slightly sweet, well-balanced taste and light hop character. Brewed with premium barley malt and fine aroma hops for a crisp, clean finish.",
-        tasting: "Subtle malt sweetness with light hop bitterness. Crisp, clean, and satisfying."
-    },
-    "craft-beer": {
-        name: "Craft Beer Selection",
-        short_desc: "Local California Brews & IPAs",
-        price: "From $11.99",
-        image: "https://kimi-web-img.moonshot.cn/img/titos-next.transforms.svdcdn.com/e46c9fd776e2b12b07298858332919ec22f12bce.jpeg",
-        abv: "Varies",
-        size: "Varies",
-        calories: "Varies",
-        origin: "California",
-        description: "Rotating selection of the best craft beers from California breweries. From hazy IPAs and juicy doubles to rich stouts and refreshing sours — there's always something new to discover.",
-        tasting: "Varies by brewery and style — ask our staff for current recommendations."
-    },
-    "powerball": {
-        name: "Powerball",
-        short_desc: "Massive Jackpots, Twice Weekly",
-        price: "$2.00 per play",
-        image: "https://kimi-web-img.moonshot.cn/img/imageio.forbes.com/1d3d23ae2d1183a45a56f94cafaf53c0e63296b9.jpg",
-        abv: "N/A",
-        size: "Per Play",
-        calories: "N/A",
-        origin: "California Lottery",
-        description: "Powerball is America's biggest lottery game with jackpots starting at $20 million and often reaching hundreds of millions. Drawings every Monday, Wednesday, and Saturday. Add Power Play for a chance to multiply non-jackpot prizes.",
-        tasting: "The taste of dreams coming true. Pick 5 numbers + Powerball for your shot at life-changing wealth."
-    },
-    "mega-millions": {
-        name: "Mega Millions",
-        short_desc: "Life-Changing Prizes",
-        price: "$2.00 per play",
-        image: "https://kimi-web-img.moonshot.cn/img/usa.inquirer.net/fc091ae4e773f5e8ebeb3080da81ea358417aabe.png",
-        abv: "N/A",
-        size: "Per Play",
-        calories: "N/A",
-        origin: "California Lottery",
-        description: "Mega Millions offers some of the largest jackpots in the world, starting at $20 million. Drawings every Tuesday and Friday. Add Megaplier to multiply your non-jackpot winnings up to 5x.",
-        tasting: "Pick 5 numbers + Mega Ball. Match all 6 to win the jackpot. Second prize: $1 million!"
-    },
-    "scratchers": {
-        name: "Scratchers",
-        short_desc: "$1 to $30 Tickets, Instant Prizes",
-        price: "From $1.00",
-        image: "https://kimi-web-img.moonshot.cn/img/lottery-admin.sd.gov/7c35644b1ba7e10d2d7e60cc8bc5ae6fd111f391.png",
-        abv: "N/A",
-        size: "Per Ticket",
-        calories: "N/A",
-        origin: "California Lottery",
-        description: "California Scratchers offer instant excitement with prizes ranging from a free ticket to $10 million. Simply scratch to reveal your numbers and symbols. Over 50 different games available with new ones added monthly.",
-        tasting: "Instant gratification! Scratch and win immediately. Top prizes up to $10 million."
-    },
-    "daily-games": {
-        name: "Daily Games",
-        short_desc: "Daily 3, Daily 4, Fantasy 5",
-        price: "From $1.00",
-        image: "https://kimi-web-img.moonshot.cn/img/nclottery.com/3f5d8e3b7236edf5f2f49708da548c6555338e15.png",
-        abv: "N/A",
-        size: "Per Play",
-        calories: "N/A",
-        origin: "California Lottery",
-        description: "Daily 3, Daily 4, and Fantasy 5 offer daily chances to win. Pick your lucky numbers or let the computer choose. Drawings every day with multiple ways to play and win.",
-        tasting: "Daily drawings mean daily chances to win. Play your lucky numbers today!"
-    },
-    "ben-jerrys-half-baked": {
-        name: "Ben & Jerry's Half Baked",
-        short_desc: "Chocolate & Vanilla, 16oz",
-        price: "$5.99",
-        image: "https://kimi-web-img.moonshot.cn/img/images.albertsons-media.com/d833b1f762b362ea83fe2cd3f023904db3756fad",
-        abv: "N/A",
-        size: "16oz",
-        calories: "270 per 1/2 cup",
-        origin: "Vermont",
-        description: "Ben & Jerry's Half Baked is a legendary combination of chocolate and vanilla ice creams mixed with gobs of chocolate chip cookie dough and fudge brownies. Made with Fairtrade certified ingredients and cage-free eggs.",
-        tasting: "Rich chocolate and creamy vanilla with chunks of real cookie dough and brownie pieces."
-    },
-    "ben-jerrys-pints": {
-        name: "Ben & Jerry's Pints",
-        short_desc: "Multiple Flavors Available",
-        price: "$5.99",
-        image: "https://kimi-web-img.moonshot.cn/img/www.benjerry.com/1ee7e4c39a90727a552dcfc0b9f69661c8da4dd9.png",
-        abv: "N/A",
-        size: "16oz",
-        calories: "250-300 per 1/2 cup",
-        origin: "Vermont",
-        description: "The full Ben & Jerry's lineup. From classics like Cherry Garcia and Chunky Monkey to new favorites like Netflix & Chill'd. Made with premium ingredients and a commitment to social justice.",
-        tasting: "Varies by flavor — all rich, creamy, and loaded with chunks and swirls."
-    },
-    "reddy-ice": {
-        name: "Reddy Ice 7lb Bag",
-        short_desc: "Premium Cubed Ice",
-        price: "$2.99",
-        image: "https://kimi-web-img.moonshot.cn/img/www.kroger.com/af0799edb1d93bb5f5fe4d697a1c0df4d5ec07fa",
-        abv: "N/A",
-        size: "7lb",
-        calories: "0",
-        origin: "USA",
-        description: "Reddy Ice premium cubed ice is crystal clear, slow-melting, and perfect for keeping drinks cold. Made from filtered water for pure, clean ice. Essential for parties, coolers, and everyday use.",
-        tasting: "Pure, clean, and cold. The perfect complement to any beverage."
-    },
-    "bagged-ice": {
-        name: "Bagged Ice 7lb",
-        short_desc: "Crystal Clear Cubed Ice",
-        price: "$2.99",
-        image: "https://kimi-web-img.moonshot.cn/img/www.bayviewliquors.com/1111e827c219917068f585fa86d9d0d84d2aa48c.webp",
-        abv: "N/A",
-        size: "7lb",
-        calories: "0",
-        origin: "USA",
-        description: "High-quality bagged ice, crystal clear and slow-melting. Perfect for parties, road trips, coolers, and keeping your drinks ice cold. Available in 7lb bags.",
-        tasting: "Pure frozen water — clean, clear, and refreshingly cold."
-    },
-    "marlboro-red": {
-        name: "Marlboro Red",
-        short_desc: "King Size, 20 Count Pack",
-        price: "$8.99",
-        image: "https://kimi-web-img.moonshot.cn/img/p.turbosquid.com/12e3209e1f18d04cf35f6a4bac1a0b46abe36c2e.jpg",
-        abv: "N/A",
-        size: "20 Count",
-        calories: "N/A",
-        origin: "USA",
-        description: "Marlboro Red is the world's best-selling cigarette, known for its full-flavored, robust taste. Made with a premium blend of American-grown tobaccos for a rich, satisfying smoke.",
-        tasting: "Full-bodied, robust tobacco flavor with a smooth, satisfying draw."
-    },
-    "marlboro-smooth": {
-        name: "Marlboro Smooth Menthol",
-        short_desc: "100s Box, 20 Count",
-        price: "$9.49",
-        image: "https://kimi-web-img.moonshot.cn/img/i5.samsclubimages.com/877f9e6408362e3fb5ee907bf931604636e9b51b.jpeg",
-        abv: "N/A",
-        size: "20 Count",
-        calories: "N/A",
-        origin: "USA",
-        description: "Marlboro Smooth Menthol delivers a cool, refreshing menthol experience with the same quality tobacco blend as the original. The 100s size provides a longer, more satisfying smoke.",
-        tasting: "Cool menthol freshness with rich tobacco undertones. Smooth and refreshing."
-    },
-    "elf-bar-600": {
-        name: "Elf Bar 600",
-        short_desc: "Disposable Vape, All Flavors",
-        price: "$14.99",
-        image: "https://kimi-web-img.moonshot.cn/img/hempelf.com/309f975b34c1344fcaf621e30099ee1bfee1a17e.jpg",
-        abv: "N/A",
-        size: "600 Puffs",
-        calories: "N/A",
-        origin: "China",
-        description: "Elf Bar 600 is a compact, disposable vape device pre-filled with 2ml of premium e-liquid. Available in a wide range of flavors from fruity to menthol. No charging, no refilling — just vape and dispose.",
-        tasting: "Varies by flavor — from sweet strawberry and mango to cool mint and tobacco."
-    },
-    "elf-bar-fs7000": {
-        name: "Elf Bar FS7000",
-        short_desc: "7000 Puffs, Rechargeable",
-        price: "$17.99",
-        image: "https://kimi-web-img.moonshot.cn/img/uvapeshop.com/04110a72d62329d53bf6b8f4cf2a6b63ec8f0842.jpg",
-        abv: "N/A",
-        size: "7000 Puffs",
-        calories: "N/A",
-        origin: "China",
-        description: "Elf Bar FS7000 offers an incredible 7000 puffs with a rechargeable battery and massive e-liquid capacity. Features adjustable airflow and a wide range of premium flavors. The ultimate disposable vape experience.",
-        tasting: "Varies by flavor — rich, intense flavor production with smooth vapor."
-    },
-};
-
-
-        const categoryNames = {
-            spirits: "Spirits",
-            wine: "Wine",
-            beer: "Beer",
-            lottery: "Lottery",
-            convenience: "Convenience",
-            tobacco: "Tobacco"
-        };
-
-        function getProductId() {
-            const params = new URLSearchParams(window.location.search);
-            return params.get('id');
-        }
-
-        function loadProduct() {
-            const id = getProductId();
-            const p = PRODUCTS[id];
-            if (!p) {
-                document.getElementById('productDetail').innerHTML = '<div style="padding:100px 40px;text-align:center;"><h1>Product Not Found</h1><p><a href="index.html">Back to Home</a></p></div>';
-                return;
-            }
-
-            document.getElementById('pImage').src = p.image;
-            document.getElementById('pImage').alt = p.name;
-            document.getElementById('pName').textContent = p.name;
-            document.getElementById('pSubtitle').textContent = p.short_desc;
-            document.getElementById('pPrice').textContent = p.price;
-            document.getElementById('pAbv').textContent = p.abv;
-            document.getElementById('pSize').textContent = p.size;
-            document.getElementById('pCalories').textContent = p.calories;
-            document.getElementById('pOrigin').textContent = p.origin;
-            document.getElementById('pDescription').textContent = p.description;
-            document.getElementById('pTasting').textContent = p.tasting;
-            document.title = p.name + " | RAVI'S LIQUOR II";
-
-            let cat = p.category || "spirits";
-            document.getElementById('bc-category').textContent = categoryNames[cat] || "Products";
-            document.getElementById('bc-product').textContent = p.name;
-
-            loadRelated(id, cat);
-        }
-
-        function loadRelated(currentId, category) {
-            const related = [];
-            for (const [k, v] of Object.entries(PRODUCTS)) {
-                if (k !== currentId && v.category === category) {
-                    related.push([k, v]);
-                }
-            }
-            const sliced = related.slice(0, 4);
-            if (sliced.length === 0) return;
-
-            const grid = document.getElementById('relatedGrid');
-            document.getElementById('relatedSection').style.display = 'block';
-
-            sliced.forEach(([pid, p]) => {
-                const card = document.createElement('div');
-                card.className = 'product-card';
-                card.style.cursor = 'pointer';
-                card.onclick = function() { window.location.href = 'product.html?id=' + pid; };
-                card.innerHTML = `
-                    <div class="product-image-wrap">
-                        <img src="${p.image}" alt="${p.name}">
-                        <div class="order-overlay">
-                            <a href="https://www.ubereats.com/store/ravis-liquor-ii-904-arrow-highway/JnTjkjAaV12nTUlCq908xg" target="_blank" class="order-btn ubereats" onclick="event.stopPropagation()">UberEats</a>
-                            <a href="https://www.doordash.com/en/convenience/store/ravis-liquor-ii-covina-36341577" target="_blank" class="order-btn doordash" onclick="event.stopPropagation()">DoorDash</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>${p.name}</h3>
-                        <p class="desc">${p.short_desc}</p>
-                        <p class="price">${p.price}</p>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        loadProduct();
-    </script>
+// Initialize
+updateCartUI();
+showHome();
+</script>
 </body>
 </html>
